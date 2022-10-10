@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View,SafeAreaView, Image, TextInput, TouchableOpacity, Linking } from 'react-native';
+import { StyleSheet, Text, View,Dimensions,SafeAreaView, Image, TextInput, TouchableOpacity, Linking } from 'react-native';
 import image1 from "../assets/dombolo1.jpg";
 import image2 from "../assets/pot1.jpg"
 
@@ -12,30 +12,39 @@ export default function SignupPage() {
       </View>
       <View style={styles.loginBox}>
             <Text style={styles.loginText}>Register Here</Text>
+            <TextInput style={styles.inputBox} placeholder='Email Address here...'></TextInput>
             <TextInput style={styles.inputBox} placeholder='Username here...'></TextInput>
             <TextInput style={styles.inputBox} placeholder='Password here...'></TextInput>
-            <TouchableOpacity href='#' style={styles.hyperLink}>Forgot Password</TouchableOpacity>
             <TouchableOpacity style={styles.loginBtn}>
                     <Text>Sign Up</Text>
-            </TouchableOpacity>     
+            </TouchableOpacity>
+            <Text style={styles.hyperLinkContainer}>
+              <Text style={styles.hyperLinkText}>Already have an Account?</Text>
+              <TouchableOpacity>
+              <Text style={styles.hyperLink}>Login here...</Text>
+              </TouchableOpacity>
+            </Text>     
       </View>
       
     </SafeAreaView>
   );
 }
 
+const deviceWidth = Math.round(Dimensions.get('window').width);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor:'white',
+    
   },
   topView:{
     flex:1,
   },
   topImage:{
     height:200,
-    width:360,
+    width:deviceWidth-20,
     borderBottomLeftRadius:50,
     borderBottomRightRadius:50,
   },
@@ -43,8 +52,8 @@ const styles = StyleSheet.create({
     display:'flex',
     flexDirection:'column',
     alignItems:'center',
-    paddingBottom:180,
-    
+    paddingBottom:100,
+    width:deviceWidth,
   },
   loginText:{
     color:'black',
@@ -55,26 +64,30 @@ const styles = StyleSheet.create({
   },
   inputBox:{
     height:40,
-    width:'150%',
-    border:'2px solid white',
+    width:deviceWidth-50,
     marginTop:20,
     backgroundColor:'#dededeee',
     paddingLeft:10,
+    borderRadius:6,
+  },
+  hyperLinkContainer:{
+    display:'flex',
+    flexDirection:'row',
+    width:deviceWidth-50,
+    marginTop:20,
   },
   hyperLink:{
-    width:'140%',
-    marginLeft:15,
-    marginTop:10,
-    textAlign:'Right',
+    color:'blue',
+    marginLeft:5,
   },
   loginBtn:{
     backgroundColor:'orange',
     height:35,
-    width:80,
+    width:deviceWidth-50,
     textAlign:'center',
     paddingTop:5,
     borderRadius:8,
-    marginTop:10,
+    marginTop:20,
   },
 
 });

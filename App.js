@@ -11,9 +11,9 @@ function App() {
   return (
     <NavigationContainer >
             <Stack.Navigator initialRouteName='LoginPage'>
-                  {/* <Stack.Screen name='signup' options={{title:'signup', headerShown:false}}>
+                  <Stack.Screen name='signup' options={{title:'signup', headerShown:false}}>
                     {(props)=> <SignupPage {...props} />}
-                  </Stack.Screen> */}
+                  </Stack.Screen>
                   <Stack.Screen name='login' options={{title:'login', headerShown:false}}>
                     {(props)=> <LoginPage {...props} />}
                   </Stack.Screen>
