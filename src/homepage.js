@@ -8,6 +8,7 @@ import image4 from '../assets/rice.jpg'
 import image5 from '../assets/kota1.jpg'
 import Foods from './foods';
 import LightFood from './lightFood';
+import KotasMenu from './kotas';
 
 const ContentComp = () => {
     return(
@@ -19,12 +20,18 @@ const Content = () => {
         <LightFood />
     )
 }
+const ContentKotas = () => {
+    return(
+        <KotasMenu />
+    )
+}
 
 
 export default function Homepage() {
 
   const [show, setShow] = React.useState(false);
-  const [showLight, setShowLight] = React.useState(false);  
+  const [showLight, setShowLight] = React.useState(false);
+  const [showKota, setShowKota] = React.useState(false);
   return (
     <SafeAreaView style={styles.container}>
         <View style={styles.topView}>
@@ -60,7 +67,7 @@ export default function Homepage() {
                         <Text>Light Meals</Text>
                     </View>
                     <View style={styles.menuTypes}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => setShowKota(!showKota)}>
                             <Image source={image5}  style={styles.foodTypes}/>
                         </TouchableOpacity>
                         <Text>Kota Menu</Text>
@@ -71,6 +78,7 @@ export default function Homepage() {
                 <View style={styles.menuList}>
                     {show && <ContentComp />}
                     {showLight && <Content />}
+                    {showKota && <ContentKotas />}
                 </View>
 
         </ScrollView>

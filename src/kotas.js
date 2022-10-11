@@ -1,44 +1,44 @@
 import * as React from 'react';
 import { StyleSheet, Text, View,ScrollView,Dimensions,SafeAreaView, Image, TextInput, TouchableOpacity } from 'react-native';
-import dombolo from '../assets/dombolo1.jpg'
-import rice from '../assets/rice.jpg'
-import Potjiekos from '../assets/Potjiekos.jpg'
-import light1 from '../assets/light1.jpg'
-import feet from '../assets/feet1.jpg'
-import mopani from '../assets/mopani.jpg'
+import kota1 from '../assets/Kota1.jpg'
+import kota2 from '../assets/kota2.jpg'
+import kota3 from '../assets/kota3.jpg'
+import kota4 from '../assets/kota4.jpg'
+import kota5 from '../assets/kota5.jpg'
+import kota6 from '../assets/kota6.jpg'
 
 
 
-export default function LightFood() {
+export default function KotasMenu() {
   return (
     <View>
         <View  style={styles.firstTable}>
             <View style={styles.mealCards}>
-                    <TouchableOpacity><Image source={dombolo} style={styles.meal1}></Image></TouchableOpacity>
-                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>dombolo and stew </Text>
+                    <TouchableOpacity><Image source={kota1} style={styles.meal1}></Image></TouchableOpacity>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>Classic stew beef Kota</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
-                        <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R60.00</Text>
+                        <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R40.00</Text>
                     </TouchableOpacity>
             </View>
             <View style={styles.mealCards}>
-                    <TouchableOpacity><Image source={rice} style={styles.meal1}></Image></TouchableOpacity>
-                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>rice and stew</Text>
+                    <TouchableOpacity><Image source={kota2} style={styles.meal1}></Image></TouchableOpacity>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>Classic chicken liver Kota</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
-                        <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R50.00</Text>
+                        <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R40.00</Text>
                     </TouchableOpacity>
             </View>
         </View>
         <View style={styles.secondTable}>
             <View style={styles.mealCards}>
-                <TouchableOpacity><Image source={Potjiekos} style={styles.meal1}></Image></TouchableOpacity>
-                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>Potato monate</Text>
+                <TouchableOpacity><Image source={kota3} style={styles.meal1}></Image></TouchableOpacity>
+                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>Classic Original Kota flavor</Text>
                 <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
-                    <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R50.00</Text>
+                    <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R30.00</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.mealCards}>
-                <TouchableOpacity><Image source={light1} style={styles.meal1}></Image></TouchableOpacity>
-                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>chicken and salads</Text>
+                <TouchableOpacity><Image source={kota4} style={styles.meal1}></Image></TouchableOpacity>
+                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>Classic tasty Kota freestyle</Text>
                 <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                     <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R40.00</Text>
                 </TouchableOpacity>
@@ -46,17 +46,17 @@ export default function LightFood() {
         </View>
         <View style={styles.thirdTable}>
             <View style={styles.mealCards}>
-                    <TouchableOpacity><Image source={feet} style={styles.meal1}></Image></TouchableOpacity>
-                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>A classic chicken feet freestyle</Text>
+                    <TouchableOpacity><Image source={kota5} style={styles.meal1}></Image></TouchableOpacity>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>Original Kota</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R30.00</Text>
                     </TouchableOpacity>
             </View>
             <View style={styles.mealCards}>
-                    <TouchableOpacity><Image source={mopani} style={styles.meal1}></Image></TouchableOpacity>
-                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>A classic Masonja special</Text>
+                    <TouchableOpacity><Image source={kota6} style={styles.meal1}></Image></TouchableOpacity>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>A Classic Kota Monster</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
-                        <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R30.00</Text>
+                        <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R40.00</Text>
                     </TouchableOpacity>
             </View>
         </View>
