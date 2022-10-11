@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginPage from './src/login';
 import SignupPage from './src/signup';
 import Homepage from './src/homepage';
+import CartPage from './src/cartPage';
 
 
 
@@ -20,6 +21,9 @@ function App() {
                   </Stack.Screen>
                   <Stack.Screen name='home' options={{title:'home', headerShown:false}}>
                     {(props)=> <Homepage {...props} />}
+                  </Stack.Screen>
+                  <Stack.Screen name='cart' options={{title:'cart', headerShown:false}}>
+                    {(props)=> <CartPage {...props} />}
                   </Stack.Screen>
             </Stack.Navigator>
     </NavigationContainer>
