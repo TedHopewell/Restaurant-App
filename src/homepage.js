@@ -1,6 +1,8 @@
 
 import React from 'react'
 import { StyleSheet, Text, View,ScrollView,Dimensions,SafeAreaView, Image, TextInput, TouchableOpacity } from 'react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import image1 from '../assets/img.jpeg'
 import image2 from '../assets/nyama1.jpg'
 import image3 from '../assets/mabele.jpg'
@@ -49,8 +51,9 @@ export default function Homepage() {
                     </View>
                         <Image source={image2} style={styles.adImage}></Image>
                 </View>
-                <Text>
-                <TextInput style={styles.srchBox} placeholder='Search for food' />
+                <Text style={styles.searchBoxContainer}>
+                    <TouchableOpacity><FontAwesomeIcon icon={faSearch} style={{paddingLeft:5,}} /></TouchableOpacity>
+                    <TextInput style={styles.srchBox} placeholder='Search for food' />
                 </Text>
                 <View style={styles.menuView}>
                     <View style={styles.menuTypes}>
@@ -116,11 +119,18 @@ const styles = StyleSheet.create({
         marginRight:10,
         alignSelf:'center',
     },
-    srchBox:{
+    searchBoxContainer:{
         border:'2px solid orange',
         height:45,
-        width:deviceWidth-70,
+        flexDirection:'row',
+       paddingTop:10,
+       borderRadius:8,
+    },
+    srchBox:{
+        height:25,
+        width:deviceWidth-90,
         marginLeft:10,
+        marginBottom:5,
         borderRadius:8,
         paddingHorizontal:20,
         fontSize:12,
