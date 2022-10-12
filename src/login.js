@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor:'black',
+    backgroundColor:'white',
   },
   topView:{
     flex:1,
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     
   },
   loginText:{
-    color:'white',
+    color:'black',
     fontWeight:'bolder',
     textAlign:'center',
     fontSize:30,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     width:deviceWidth-50,
     marginTop:20,
     backgroundColor:'#dededeee',
-    paddingLeft:10,
+    paddingHorizontal:20,
     borderRadius:6,
   },
   hyperLinksContainer:{

@@ -15,14 +15,14 @@ export default function KotasMenu() {
         <View  style={styles.firstTable}>
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={kota1} style={styles.meal1}></Image></TouchableOpacity>
-                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>Classic stew beef Kota</Text>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>Classic stew beef Kota</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R40.00</Text>
                     </TouchableOpacity>
             </View>
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={kota2} style={styles.meal1}></Image></TouchableOpacity>
-                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>Classic chicken liver Kota</Text>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>Classic chicken liver Kota</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R40.00</Text>
                     </TouchableOpacity>
@@ -31,14 +31,14 @@ export default function KotasMenu() {
         <View style={styles.secondTable}>
             <View style={styles.mealCards}>
                 <TouchableOpacity><Image source={kota3} style={styles.meal1}></Image></TouchableOpacity>
-                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>Classic Original Kota flavor</Text>
+                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>Classic Original Kota flavor</Text>
                 <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                     <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R30.00</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.mealCards}>
                 <TouchableOpacity><Image source={kota4} style={styles.meal1}></Image></TouchableOpacity>
-                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>Classic tasty Kota freestyle</Text>
+                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>Classic tasty Kota freestyle</Text>
                 <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                     <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R40.00</Text>
                 </TouchableOpacity>
@@ -47,14 +47,14 @@ export default function KotasMenu() {
         <View style={styles.thirdTable}>
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={kota5} style={styles.meal1}></Image></TouchableOpacity>
-                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>Original Kota</Text>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>Original Kota</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R30.00</Text>
                     </TouchableOpacity>
             </View>
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={kota6} style={styles.meal1}></Image></TouchableOpacity>
-                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>A Classic Kota Monster</Text>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>A Classic Kota Monster</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R40.00</Text>
                     </TouchableOpacity>
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     mealCards:{
         height:220,
         width:150,
-        backgroundColor:'white',
+        backgroundColor:'lightgrey',
         borderRadius:20,
     },
     meal1:{

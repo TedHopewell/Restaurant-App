@@ -38,7 +38,7 @@ export default function Homepage() {
   return (
     <SafeAreaView style={styles.container}>
         <View style={styles.topView}>
-                <Text style={{color:'white', fontSize:30,paddingTop:18, paddingLeft:20}}>Welcome,</Text><Text style={{color:'white', fontSize:30,paddingTop:18,fontWeight:'bold',marginRight:10,}}>Hopewell</Text>
+                <Text style={{color:'black', fontSize:30,paddingTop:18, paddingLeft:20}}>Welcome,</Text><Text style={{color:'black', fontSize:30,paddingTop:18,fontWeight:'bold',marginRight:10,}}>Hopewell</Text>
                 <Image source={image1} style={styles.profilePic}></Image>
         </View>
         
@@ -53,7 +53,7 @@ export default function Homepage() {
                         <Image source={image2} style={styles.adImage}></Image>
                 </View>
                 <Text style={styles.searchBoxContainer}>
-                    <TouchableOpacity><FontAwesomeIcon icon={faSearch} style={{paddingLeft:5,color:'white'}} /></TouchableOpacity>
+                    <TouchableOpacity><FontAwesomeIcon icon={faSearch} style={{paddingLeft:5,color:'black'}} /></TouchableOpacity>
                     <TextInput style={styles.srchBox} placeholder='Search for food' />
                 </Text>
                 <View style={styles.menuView}>
@@ -61,20 +61,20 @@ export default function Homepage() {
                         <TouchableOpacity onPress={() => setShow(!show)} >
                             <Image source={image3}  style={styles.foodTypes}/>
                         </TouchableOpacity>
-                        <Text style={{color:'white'}}>Heavy Meals</Text>
+                        <Text style={{color:'black'}}>Heavy Meals</Text>
                         <View style={styles.line}></View>
                     </View>
                     <View style={styles.menuTypes}>
                         <TouchableOpacity onPress={() => setShowLight(!showLight)}>
                             <Image source={image4}  style={styles.foodTypes}/>
                         </TouchableOpacity>
-                        <Text style={{color:'white'}}>Light Meals</Text>
+                        <Text style={{color:'black'}}>Light Meals</Text>
                     </View>
                     <View style={styles.menuTypes}>
                         <TouchableOpacity onPress={() => setShowKota(!showKota)}>
                             <Image source={image5}  style={styles.foodTypes}/>
                         </TouchableOpacity>
-                        <Text style={{color:'white'}}>Kota Menu</Text>
+                        <Text style={{color:'black'}}>Kota Menu</Text>
                     </View>
                     
                 </View>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor:'black',
+      backgroundColor:'white',
     },
     topView:{
         display:'flex',
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
         borderRadius:8,
         paddingHorizontal:20,
         fontSize:12,
-        color:'white',
+        color:'black',
     },
     special:{
         display:'flex',

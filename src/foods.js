@@ -15,14 +15,14 @@ export default function Foods() {
         <View  style={styles.firstTable}>
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={pap} style={styles.meal1}></Image></TouchableOpacity>
-                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>A classic kasi flavor steak and pap</Text>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>A classic kasi flavor steak and pap</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R80.00</Text>
                     </TouchableOpacity>
             </View>
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={chicken} style={styles.meal1}></Image></TouchableOpacity>
-                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>A classing pap and hardbody</Text>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>A classing pap and hardbody</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R60.00</Text>
                     </TouchableOpacity>
@@ -31,14 +31,14 @@ export default function Foods() {
         <View style={styles.secondTable}>
             <View style={styles.mealCards}>
                 <TouchableOpacity><Image source={chicken2} style={styles.meal1}></Image></TouchableOpacity>
-                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>Our very own special chicken dust</Text>
+                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>Our very own special chicken dust</Text>
                 <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                     <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R100.00</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.mealCards}>
                 <TouchableOpacity><Image source={nama} style={styles.meal1}></Image></TouchableOpacity>
-                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>pap and lamb traditionally cooked</Text>
+                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>pap and lamb traditionally cooked</Text>
                 <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                     <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R80.00</Text>
                 </TouchableOpacity>
@@ -47,14 +47,14 @@ export default function Foods() {
         <View style={styles.thirdTable}>
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={mabele} style={styles.meal1}></Image></TouchableOpacity>
-                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>A classic Mabele and beef stew</Text>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>A classic Mabele and beef stew</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R60.00</Text>
                     </TouchableOpacity>
             </View>
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={samp} style={styles.meal1}></Image></TouchableOpacity>
-                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,}}>Our special samp and stew traditionally cooked</Text>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>Our special samp and stew traditionally cooked</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R60.00</Text>
                     </TouchableOpacity>
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     mealCards:{
         height:220,
         width:150,
-        backgroundColor:'white',
+        backgroundColor:'lightgrey',
         borderRadius:20,
     },
     meal1:{
