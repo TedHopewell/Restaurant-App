@@ -8,7 +8,7 @@ export default function CartPage() {
     <View style={styles.container}>
         <View style={styles.topView}>
             <Image source={img} style={styles.topViewImg}></Image>
-            <Text style={{fontSize:30,fontWeight:'bold', fontFamily:'roboto'}}>Pap and Steak</Text>
+            <Text style={{fontSize:30,fontWeight:'bold', fontFamily:'roboto',paddingTop:20,}}>Pap and Steak</Text>
         </View>
         <View  style={styles.midView}>
 

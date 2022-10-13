@@ -4,6 +4,9 @@ import { StyleSheet, Text, View,ScrollView,Dimensions,SafeAreaView, Image, TextI
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import image1 from '../assets/img.jpeg'
 import image2 from '../assets/nyama1.jpg'
 import image3 from '../assets/mabele.jpg'
@@ -37,8 +40,12 @@ export default function Homepage() {
   const [showKota, setShowKota] = React.useState(false);
   return (
     <SafeAreaView style={styles.container}>
+        <TouchableOpacity style={{height:20, width:20,paddingTop:5,alignSelf:'flex-start',paddingLeft:10}}>
+                    <FontAwesomeIcon icon={faArrowLeft}  />
+        </TouchableOpacity>
         <View style={styles.topView}>
-                <Text style={{color:'black', fontSize:30,paddingTop:18, paddingLeft:20}}>Welcome,</Text><Text style={{color:'black', fontSize:30,paddingTop:18,fontWeight:'bold',marginRight:10,}}>Hopewell</Text>
+                
+                <Text style={{color:'black', fontSize:30,paddingTop:28, paddingLeft:20}}>Welcome,</Text><Text style={{color:'black', fontSize:30,paddingTop:28,fontWeight:'bold',marginRight:10,}}>Hopewell</Text>
                 <Image source={image1} style={styles.profilePic}></Image>
         </View>
         
@@ -53,7 +60,7 @@ export default function Homepage() {
                         <Image source={image2} style={styles.adImage}></Image>
                 </View>
                 <Text style={styles.searchBoxContainer}>
-                    <TouchableOpacity><FontAwesomeIcon icon={faSearch} style={{paddingLeft:5,color:'black'}} /></TouchableOpacity>
+                    <TouchableOpacity><FontAwesomeIcon icon={faSearch} style={{paddingLeft:5,color:'black',paddingTop:5}} /></TouchableOpacity>
                     <TextInput style={styles.srchBox} placeholder='Search for food' />
                 </Text>
                 <View style={styles.menuView}>
@@ -87,7 +94,17 @@ export default function Homepage() {
 
         </ScrollView>
         <View style={styles.bottomView}>
-            <TouchableOpacity><FontAwesomeIcon icon={faBars} style={{fontSize:30,alignSelf:'center',paddingTop:20}} /></TouchableOpacity>
+            <TouchableOpacity>
+                <FontAwesomeIcon icon={faBars} style={{fontSize:30,paddingTop:10, height:30, width:30, marginLeft:40}} />
+            </TouchableOpacity>
+            
+            <TouchableOpacity>
+                <FontAwesomeIcon icon={faHome} style={{fontSize:30,paddingTop:10, height:30, width:30, marginLeft:40}} />
+            </TouchableOpacity>
+
+            <TouchableOpacity>
+                <FontAwesomeIcon icon={faShoppingCart} style={{fontSize:30,paddingTop:10, height:30, width:30, marginLeft:40}} />
+            </TouchableOpacity>
         </View>
         
         {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="orange" fillOpacity="1" d="M0,64L48,101.3C96,139,192,213,288,240C384,267,480,245,576,202.7C672,160,768,96,864,85.3C960,75,1056,117,1152,149.3C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg> */}
@@ -102,7 +119,7 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor:'white',
+      backgroundColor:'rgb(252,246,246)',
     },
     topView:{
         display:'flex',
@@ -115,7 +132,7 @@ const styles = StyleSheet.create({
         height:50,
         width:50,
         borderRadius:50,
-        marginTop:5,
+        marginTop:20,
         marginRight:20,
         alignSelf:'center',
     },
@@ -144,7 +161,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         width:deviceWidth-60,
         height:150,
-        backgroundColor:'orange',
+        backgroundColor:'rgb(203,210,143)',
         marginVertical:20,
         borderRadius:20,
     },
@@ -167,7 +184,7 @@ const styles = StyleSheet.create({
         fontFamily:'pacifico'
     },
     promoBtn:{
-        backgroundColor:'#ffffff',
+        backgroundColor:'orange',
         width:90,
         height:30,
         marginHorizontal:20,
@@ -213,6 +230,9 @@ const styles = StyleSheet.create({
         height:50,
         width:'100%',
         backgroundColor:'white',
-    }
+        flexDirection:'row',
+        justifyContent:'space-evenly',
+        paddingRight:50,    
+    },
    
 })
