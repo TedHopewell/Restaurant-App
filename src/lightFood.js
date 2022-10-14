@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     mealCards:{
         height:220,
         width:150,
-        backgroundColor:'lightgrey',
+        backgroundColor:'rgb(203,210,143)',
         borderRadius:20,
     },
     meal1:{

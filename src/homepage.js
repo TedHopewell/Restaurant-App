@@ -40,15 +40,16 @@ export default function Homepage() {
   const [showKota, setShowKota] = React.useState(false);
   return (
     <SafeAreaView style={styles.container}>
-        <TouchableOpacity style={{height:20, width:20,paddingTop:5,alignSelf:'flex-start',paddingLeft:10}}>
-                    <FontAwesomeIcon icon={faArrowLeft}  />
-        </TouchableOpacity>
+        
         <View style={styles.topView}>
                 
                 <Text style={{color:'black', fontSize:30,paddingTop:28, paddingLeft:20}}>Welcome,</Text><Text style={{color:'black', fontSize:30,paddingTop:28,fontWeight:'bold',marginRight:10,}}>Hopewell</Text>
                 <Image source={image1} style={styles.profilePic}></Image>
         </View>
-        
+        <TouchableOpacity style={{height:20, width:20,alignSelf:'flex-start',paddingLeft:10}}>
+                    <FontAwesomeIcon icon={faArrowLeft}  />
+        </TouchableOpacity>
+
         <ScrollView style={styles.midView} showsVerticalScrollIndicator={false}>
                 <View style={styles.special}>
                     <View style={styles.promoTextContainer}>
@@ -144,6 +145,7 @@ const styles = StyleSheet.create({
         borderRadius:8,
         width:deviceWidth-70,
         marginLeft:10,
+        backgroundColor:'rgb(203,210,143)'
         
     },
     srchBox:{
