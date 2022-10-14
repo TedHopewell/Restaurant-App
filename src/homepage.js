@@ -2,11 +2,14 @@
 import React from 'react'
 import { StyleSheet, Text, View,ScrollView,Dimensions,SafeAreaView, Image, TextInput, TouchableOpacity } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import Icon from 'react-native-vector-icons/FontAwesome';
+// import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faDirections } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
+// import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import image1 from '../assets/img.jpeg'
 import image2 from '../assets/nyama1.jpg'
 import image3 from '../assets/mabele.jpg'
@@ -47,7 +50,14 @@ export default function Homepage() {
                 <Image source={image1} style={styles.profilePic}></Image>
         </View>
         <TouchableOpacity style={{height:20, width:20,alignSelf:'flex-start',paddingLeft:10}}>
-                    <FontAwesomeIcon icon={faArrowLeft}  />
+                    {/* <FontAwesomeIcon icon={faArrowLeft}  /> */}
+                    <Icon 
+                        style={styles.iconicIcon}
+                        size='30'
+                        name='arrow-left'
+                        type='ionicons'
+                        color='black'
+                    />
         </TouchableOpacity>
 
         <ScrollView style={styles.midView} showsVerticalScrollIndicator={false}>
@@ -61,7 +71,17 @@ export default function Homepage() {
                         <Image source={image2} style={styles.adImage}></Image>
                 </View>
                 <Text style={styles.searchBoxContainer}>
-                    <TouchableOpacity><FontAwesomeIcon icon={faSearch} style={{paddingLeft:5,color:'black',paddingTop:5}} /></TouchableOpacity>
+                    <TouchableOpacity>
+                        {/* <FontAwesomeIcon icon={faSearch} style={{paddingLeft:5,color:'black',paddingTop:5}} /> */}
+                        <Icon
+                            style={styles.iconicIcon2}
+                            size='30'
+                            name='search'
+                            type='ionicons'
+                            color='black'
+                            
+                         />
+                    </TouchableOpacity>
                     <TextInput style={styles.srchBox} placeholder='Search for food' />
                 </Text>
                 <View style={styles.menuView}>
@@ -96,15 +116,23 @@ export default function Homepage() {
         </ScrollView>
         <View style={styles.bottomView}>
             <TouchableOpacity>
-                <FontAwesomeIcon icon={faBars} style={{fontSize:30,paddingTop:10, height:30, width:30, marginLeft:40}} />
+                <FontAwesomeIcon icon={faHome} style={{fontSize:30,paddingTop:15, height:20, width:30,color:'orange'}} />
             </TouchableOpacity>
             
             <TouchableOpacity>
-                <FontAwesomeIcon icon={faHome} style={{fontSize:30,paddingTop:10, height:30, width:30, marginLeft:40}} />
+                <FontAwesomeIcon icon={faHeart} style={{fontSize:30,paddingTop:15, height:20, width:30,color:'orange'}} />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{backgroundColor:'orange', width:30,height:30,marginTop:10,borderRadius:50}}>
+                <FontAwesomeIcon icon={faBriefcase} style={{fontSize:30, height:20, width:30,marginTop:5, }} />
             </TouchableOpacity>
 
             <TouchableOpacity>
-                <FontAwesomeIcon icon={faShoppingCart} style={{fontSize:30,paddingTop:10, height:30, width:30, marginLeft:40}} />
+                <FontAwesomeIcon icon={faDirections} style={{fontSize:30,paddingTop:15, height:20, width:30,color:'orange'}} />
+            </TouchableOpacity>
+
+            <TouchableOpacity>
+                <FontAwesomeIcon icon={faUser} style={{fontSize:30,paddingTop:15, height:20, width:30,color:'orange'}} />
             </TouchableOpacity>
         </View>
         
@@ -151,7 +179,7 @@ const styles = StyleSheet.create({
     srchBox:{
         height:25,
         width:deviceWidth-110,
-        marginLeft:10,
+        
         borderRadius:8,
         paddingHorizontal:20,
         fontSize:12,
@@ -234,7 +262,14 @@ const styles = StyleSheet.create({
         backgroundColor:'white',
         flexDirection:'row',
         justifyContent:'space-evenly',
-        paddingRight:50,    
+    },
+    iconicIcon:{
+        marginLeft:20,
+        width:20
+    },
+    iconicIcon2:{
+        marginLeft:5,
+        width:20
     },
    
 })
