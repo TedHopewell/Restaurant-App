@@ -36,7 +36,7 @@ const ContentKotas = () => {
 }
 
 
-export default function Homepage() {
+export default function Homepage({navigation}) {
 
   const [show, setShow] = React.useState(false);
   const [showLight, setShowLight] = React.useState(false);
@@ -49,7 +49,7 @@ export default function Homepage() {
                 <Text style={{color:'black', fontSize:30,paddingTop:28, paddingLeft:20}}>Welcome,</Text><Text style={{color:'black', fontSize:30,paddingTop:28,fontWeight:'bold',marginRight:10,}}>Hopewell</Text>
                 <Image source={image1} style={styles.profilePic}></Image>
         </View>
-        <TouchableOpacity style={{height:20, width:20,alignSelf:'flex-start',paddingLeft:10}}>
+        <TouchableOpacity onPress={()=> {navigation.push('login')}} style={{height:20, width:20,alignSelf:'flex-start',paddingLeft:10}}>
                     {/* <FontAwesomeIcon icon={faArrowLeft}  /> */}
                     <Icon 
                         style={styles.iconicIcon}
@@ -57,6 +57,7 @@ export default function Homepage() {
                         name='arrow-left'
                         type='ionicons'
                         color='black'
+                        
                     />
         </TouchableOpacity>
 
@@ -179,7 +180,6 @@ const styles = StyleSheet.create({
     srchBox:{
         height:25,
         width:deviceWidth-110,
-        
         borderRadius:8,
         paddingHorizontal:20,
         fontSize:12,

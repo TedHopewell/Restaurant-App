@@ -23,7 +23,7 @@ export default function Foods() {
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R80.00</Text>
                     </TouchableOpacity>
                     <TouchableOpacity>
-                        <FontAwesomeIcon icon={faHeart} style={{alignSelf:'flex-end',color:'white',marginRight:8,marginBottom:1}} />
+                        <FontAwesomeIcon icon={faHeart} style={{alignSelf:'flex-end',color:'orange',marginLeft:25,marginBottom:1,height:30, width:25}} />
                     </TouchableOpacity>
             </View>
             <View style={styles.mealCards}>
