@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View,Dimensions, Image, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 // import image1 from "../assets/dombolo1.jpg";
 import image2 from "../assets/pot1.jpg"
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import {auth} from '../src/firebase'
 
 
@@ -10,10 +10,14 @@ export default function SignupPage({navigation}) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [userId, setUserID] = React.useState('');
+  const [user, setUser] = React.useState('');
   
   const register = (() => {
-    createUserWithEmailAndPassword(auth,email,password).then(()=>{
-      alert("Registered successfully");
+    createUserWithEmailAndPassword(auth,email,password).then(async(userCredentials)=>{
+      const profileName = userId;
+      setUser(() => ({...userCredentials.user}));
+      updateProfile(auth.currentUser, {profileName:profileName}).then().catch();
+      alert(profileName + "Registered successfully");
       navigation.push('home');
     }).catch((error) =>{
       console.log(error)
@@ -33,7 +37,7 @@ export default function SignupPage({navigation}) {
       <View style={styles.loginBox}>
             <Text style={styles.loginText}>Register Here</Text>
             <TextInput style={styles.inputBox} placeholder='Email Address here...' onChangeText={(email) => setEmail(email)} ></TextInput>
-            <TextInput style={styles.inputBox} placeholder='Username here...'></TextInput>
+            <TextInput style={styles.inputBox} placeholder='Username here...' onChangeText={(userId) => setUserID(userId)}></TextInput>
             <TextInput style={styles.inputBox} placeholder='Password here...' onChangeText={(password) => setPassword(password)}></TextInput>
             <TouchableOpacity style={styles.loginBtn} onPress={register}>
                     <Text style={{fontSize:20,fontWeight:'800'}}>Sign Up</Text>
