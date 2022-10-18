@@ -11,8 +11,7 @@ import mopani from '../assets/mopani.jpg'
 
 export default function LightFood() {
   return (
-    <View>
-        <View  style={styles.firstTable}>
+    <View  style={{flexDirection:'row', flexWrap:'wrap', justifyContent:'space-evenly'}}>
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={dombolo} style={styles.meal1}></Image></TouchableOpacity>
                     <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>dombolo and stew </Text>
@@ -27,8 +26,6 @@ export default function LightFood() {
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R50.00</Text>
                     </TouchableOpacity>
             </View>
-        </View>
-        <View style={styles.secondTable}>
             <View style={styles.mealCards}>
                 <TouchableOpacity><Image source={Potjiekos} style={styles.meal1}></Image></TouchableOpacity>
                 <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>Potato monate</Text>
@@ -43,8 +40,6 @@ export default function LightFood() {
                     <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R40.00</Text>
                 </TouchableOpacity>
             </View>
-        </View>
-        <View style={styles.thirdTable}>
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={feet} style={styles.meal1}></Image></TouchableOpacity>
                     <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>A classic chicken feet freestyle</Text>
@@ -59,33 +54,18 @@ export default function LightFood() {
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R30.00</Text>
                     </TouchableOpacity>
             </View>
-        </View>
     </View>
   );
 }
 
 const deviceWidth = Math.round(Dimensions.get('window').width);
 const styles = StyleSheet.create({
-    firstTable:{
-        flexDirection:'row',
-        justifyContent:'space-evenly',
-        marginTop:10,
-    },
-    secondTable:{
-        flexDirection:'row',
-        justifyContent:'space-evenly',
-        marginTop:10,
-    },
-    thirdTable:{
-        flexDirection:'row',
-        justifyContent:'space-evenly',
-        marginTop:10,
-    },
     mealCards:{
         height:220,
         width:150,
         backgroundColor:'rgb(203,210,143)',
         borderRadius:20,
+        marginTop:10
     },
     meal1:{
         height:120,

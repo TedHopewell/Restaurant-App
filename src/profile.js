@@ -21,7 +21,22 @@ const Profilepage = ({navigation}) => {
 
         </View>
         <View style={styles.midView}>
-            <Text>profile page here</Text>
+            <View style={{backgroundColor:'white',height:150,width:150,marginTop:-50,borderRadius:100}}>
+
+            </View>
+            <Text style={{color:'grey',paddingTop:20}}>25, Male</Text>
+
+            <View style={{shadowOpacity:4,width:300,height:50,backgroundColor:'white',marginTop:40}}>
+
+            </View>
+            <View style={{shadowOpacity:4,width:300,height:50,backgroundColor:'white',marginTop:20}}>
+
+            </View>
+
+            <View style={{shadowOpacity:4,width:300,height:50,backgroundColor:'white',marginTop:20}}>
+
+            </View>
+
 
         </View>
         <View style={styles.bottomView}>
@@ -41,8 +56,7 @@ const styles = StyleSheet.create({
         
     },
     topView:{
-        flex:1,
-        height:'50px',
+        flex:4,
         width:'100%',
         backgroundColor:'orange',
         
@@ -50,13 +64,11 @@ const styles = StyleSheet.create({
     midView:{
         flex:12,
         width:'100%',
-        backgroundColor:'rgb(203,210,143)',
-        justifyContent:'center',
         alignItems:'center',
 
     },
     bottomView:{
-        flex:1,
+        flex:2,
         backgroundColor:'orange',
         width:'100%'
     },

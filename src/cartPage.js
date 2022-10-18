@@ -10,18 +10,18 @@ export default function CartPage({navigation}) {
     <View style={styles.container}>
         <View style={styles.topView}>
             <Image source={img} style={styles.topViewImg}></Image>
-            <TouchableOpacity onPress={()=> {navigation.push('home')}}  style={{height:20, width:20,alignSelf:'flex-start',}}>
+            <TouchableOpacity onPress={()=> {navigation.push('home')}}  style={{height:20, width:20,alignSelf:'flex-start',marginLeft:20}}>
                     <FontAwesomeIcon icon={faArrowLeft}  />
             </TouchableOpacity>
-            <Text style={{fontSize:30,fontWeight:'bold', fontFamily:'roboto',}}>Pap and Steak</Text>
+            <Text style={{fontSize:30,fontWeight:'bold', fontFamily:'roboto',paddingLeft:20}}>Pap and Steak</Text>
         </View>
         <View  style={styles.midView}>
              <View style={styles.infoContainer}>
-
+                    <Text >Our pap and stake is one of our favorites and the meat is specifically imported from the Angolan bool farm</Text>
               </View> 
         </View>
         <View  style={styles.bottomView}>
-
+            <Text>menu here</Text>
         </View>
 
     </View>
@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
         width:'100%',
         borderBottomLeftRadius:80,
         borderBottomRightRadius:40,
-        width:deviceWidth-50,
         
       },
       topViewImg:{
@@ -51,15 +50,24 @@ const styles = StyleSheet.create({
         paddingRight:100,
       },
       midView:{
+        flex:12,
         height:500,
         width:'100%',
       },
       
       infoContainer:{
-        backgroundColor:'blue',
+        
         height:50,
         width:'100%',
+        padding:20,
+        
 
       },
+      bottomView:{
+      
+        height:50,
+        width:'100%',
+        backgroundColor:'blue',
+      }
 })
 

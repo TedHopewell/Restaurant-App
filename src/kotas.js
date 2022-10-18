@@ -11,8 +11,7 @@ import sixthKota from '../assets/kota6.jpg'
 
 export default function KotasMenu() {
   return (
-    <View>
-        <View  style={styles.firstTable}>
+    <View  style={{flexDirection:'row', flexWrap:'wrap', justifyContent:'space-evenly'}}>
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={firstKota} style={styles.meal1}></Image></TouchableOpacity>
                     <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>Classic stew beef Kota</Text>
@@ -27,8 +26,6 @@ export default function KotasMenu() {
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R40.00</Text>
                     </TouchableOpacity>
             </View>
-        </View>
-        <View style={styles.secondTable}>
             <View style={styles.mealCards}>
                 <TouchableOpacity><Image source={thirdKota} style={styles.meal1}></Image></TouchableOpacity>
                 <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>Classic Original Kota flavor</Text>
@@ -43,8 +40,6 @@ export default function KotasMenu() {
                     <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R40.00</Text>
                 </TouchableOpacity>
             </View>
-        </View>
-        <View style={styles.thirdTable}>
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={fifthKota} style={styles.meal1}></Image></TouchableOpacity>
                     <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>Original Kota</Text>
@@ -59,33 +54,18 @@ export default function KotasMenu() {
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R40.00</Text>
                     </TouchableOpacity>
             </View>
-        </View>
     </View>
   );
 }
 
 const deviceWidth = Math.round(Dimensions.get('window').width);
 const styles = StyleSheet.create({
-    firstTable:{
-        flexDirection:'row',
-        justifyContent:'space-evenly',
-        marginTop:10,
-    },
-    secondTable:{
-        flexDirection:'row',
-        justifyContent:'space-evenly',
-        marginTop:10,
-    },
-    thirdTable:{
-        flexDirection:'row',
-        justifyContent:'space-evenly',
-        marginTop:10,
-    },
     mealCards:{
         height:220,
         width:150,
         backgroundColor:'rgb(203,210,143)',
         borderRadius:20,
+        marginTop:10,
     },
     meal1:{
         height:120,

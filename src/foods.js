@@ -14,8 +14,8 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 export default function Foods() {
   return (
-    <View>
-        <View  style={styles.firstTable}>
+    <View style={{flexDirection:'row', flexWrap:'wrap', justifyContent:'space-evenly'}}>
+        
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={pap} style={styles.meal1}></Image></TouchableOpacity>
                     <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>A classic kasi flavor steak and pap</Text>
@@ -36,8 +36,8 @@ export default function Foods() {
                         <FontAwesomeIcon icon={faHeart} style={{alignSelf:'flex-end',color:'orange',marginLeft:25,height:30, width:25,marginTop:5}} />
                     </TouchableOpacity> */}
             </View>
-        </View>
-        <View style={styles.secondTable}>
+        
+        
             <View style={styles.mealCards}>
                 <TouchableOpacity><Image source={chicken2} style={styles.meal1}></Image></TouchableOpacity>
                 <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>Our very own special chicken dust</Text>
@@ -58,8 +58,8 @@ export default function Foods() {
                     <FontAwesomeIcon icon={faHeart}  style={{alignSelf:'flex-end',color:'white',marginRight:8,marginBottom:1}}/>
                 </TouchableOpacity> */}
             </View>
-        </View>
-        <View style={styles.thirdTable}>
+        
+        
             <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={mabele} style={styles.meal1}></Image></TouchableOpacity>
                     <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>A classic Mabele and beef stew</Text>
@@ -80,33 +80,19 @@ export default function Foods() {
                         <FontAwesomeIcon icon={faHeart}  style={{alignSelf:'flex-end',color:'white',marginRight:8,marginBottom:1}}/>
                     </TouchableOpacity> */}
             </View>
-        </View>
+        
     </View>
   );
 }
 
 const deviceWidth = Math.round(Dimensions.get('window').width);
 const styles = StyleSheet.create({
-    firstTable:{
-        flexDirection:'row',
-        justifyContent:'space-evenly',
-        marginTop:10,
-    },
-    secondTable:{
-        flexDirection:'row',
-        justifyContent:'space-evenly',
-        marginTop:10,
-    },
-    thirdTable:{
-        flexDirection:'row',
-        justifyContent:'space-evenly',
-        marginTop:10,
-    },
     mealCards:{
         height:220,
         width:150,
         backgroundColor:'rgb(203,210,143)',
         borderRadius:20,
+        marginTop:10
     },
     meal1:{
         height:120,

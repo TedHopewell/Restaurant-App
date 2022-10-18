@@ -47,7 +47,7 @@ export default function Homepage({navigation}) {
         <View style={styles.topView}>
                 
                 <Text style={{color:'black', fontSize:30,paddingTop:28, paddingLeft:20}}>Welcome,</Text><Text style={{color:'black', fontSize:30,paddingTop:28,fontWeight:'bold',marginRight:10,}}>Hopewell</Text>
-                <Image source={image1} style={styles.profilePic}></Image>
+                <TouchableOpacity  onPress={()=> {navigation.push('profile')}}><Image source={image1} style={styles.profilePic}></Image></TouchableOpacity>
         </View>
         <TouchableOpacity onPress={()=> {navigation.push('login')}} style={{height:20, width:20,alignSelf:'flex-start',paddingLeft:10}}>
                     {/* <FontAwesomeIcon icon={faArrowLeft}  /> */}
@@ -65,7 +65,7 @@ export default function Homepage({navigation}) {
                 <View style={styles.special}>
                     <View style={styles.promoTextContainer}>
                         <Text style={styles.promoText}>Get our super combo at Combo Mondays to enjoy our special meat monster</Text>
-                        <TouchableOpacity onPress={()=> {navigation.push('orders')}} style={styles.promoBtn}>
+                        <TouchableOpacity onPress={()=> {navigation.push('cart')}} style={styles.promoBtn}>
                             <Text>Order here..</Text>
                         </TouchableOpacity>
                     </View>
@@ -91,7 +91,7 @@ export default function Homepage({navigation}) {
                             <Image source={image3}  style={styles.foodTypes}/>
                         </TouchableOpacity>
                         <Text style={{color:'black'}}>Heavy Meals</Text>
-                        <View style={styles.line}></View>
+                        {/* <View style={styles.line}></View> */}
                     </View>
                     <View style={styles.menuTypes}>
                         <TouchableOpacity onPress={() => setShowLight(!showLight)}>
