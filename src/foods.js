@@ -12,7 +12,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 
 
-export default function Foods({navigation}) {
+export default function Foods() {
   return (
     <View>
         <View  style={styles.firstTable}>

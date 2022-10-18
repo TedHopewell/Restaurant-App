@@ -6,6 +6,7 @@ import { auth } from '../src/firebase';
 
 
 
+
 export default function LoginPage({navigation}) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -27,7 +28,7 @@ export default function LoginPage({navigation}) {
       </View>
       <View style={styles.loginBox}>
             <Text style={styles.loginText}>Welcome Back</Text>
-            <TextInput style={styles.inputBox}  placeholder='Username here...' onChangeText={(email) => setEmail(email)} ></TextInput>
+            <TextInput style={styles.inputBox} placeholder='Username here...' onChangeText={(email) => setEmail(email)} ></TextInput>
             <TextInput style={styles.inputBox} placeholder='Password here...' onChangeText={(password) => setPassword(password)}></TextInput>
             <TouchableOpacity style={styles.loginBtn} >
                     <Text style={{fontSize:20,fontWeight:'800'}} onPress={login}>Sign In</Text>
