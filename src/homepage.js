@@ -65,7 +65,7 @@ export default function Homepage({navigation}) {
                 <View style={styles.special}>
                     <View style={styles.promoTextContainer}>
                         <Text style={styles.promoText}>Get our super combo at Combo Mondays to enjoy our special meat monster</Text>
-                        <TouchableOpacity style={styles.promoBtn}>
+                        <TouchableOpacity onPress={()=> {navigation.push('orders')}} style={styles.promoBtn}>
                             <Text>Order here..</Text>
                         </TouchableOpacity>
                     </View>
@@ -116,23 +116,23 @@ export default function Homepage({navigation}) {
 
         </ScrollView>
         <View style={styles.bottomView}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=> {navigation.push('home')}}>
                 <FontAwesomeIcon icon={faHome} style={{fontSize:30,paddingTop:15, height:20, width:30,color:'orange'}} />
             </TouchableOpacity>
             
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=> {navigation.push('favors')}}>
                 <FontAwesomeIcon icon={faHeart} style={{fontSize:30,paddingTop:15, height:20, width:30,color:'orange'}} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={{backgroundColor:'orange', width:30,height:30,marginTop:10,borderRadius:50}}>
+            <TouchableOpacity onPress={()=> {navigation.push('orders')}} style={{backgroundColor:'orange', width:30,height:30,marginTop:10,borderRadius:50}}>
                 <FontAwesomeIcon icon={faBriefcase} style={{fontSize:30, height:20, width:30,marginTop:5, }} />
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=> {navigation.push('directions')}}>
                 <FontAwesomeIcon icon={faDirections} style={{fontSize:30,paddingTop:15, height:20, width:30,color:'orange'}} />
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=> {navigation.push('profile')}}>
                 <FontAwesomeIcon icon={faUser} style={{fontSize:30,paddingTop:15, height:20, width:30,color:'orange'}} />
             </TouchableOpacity>
         </View>

@@ -5,13 +5,13 @@ import img from '../assets/pap2.jpg'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 
-export default function CartPage() {
+export default function CartPage({navigation}) {
   return (
     <View style={styles.container}>
         <View style={styles.topView}>
             <Image source={img} style={styles.topViewImg}></Image>
-            <TouchableOpacity style={{height:20, width:20,alignSelf:'flex-start',}}>
-                    <FontAwesomeIcon icon={faArrowLeft}   />
+            <TouchableOpacity onPress={()=> {navigation.push('home')}}  style={{height:20, width:20,alignSelf:'flex-start',}}>
+                    <FontAwesomeIcon icon={faArrowLeft}  />
             </TouchableOpacity>
             <Text style={{fontSize:30,fontWeight:'bold', fontFamily:'roboto',}}>Pap and Steak</Text>
         </View>

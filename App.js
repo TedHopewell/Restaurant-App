@@ -5,6 +5,10 @@ import LoginPage from './src/login';
 import SignupPage from './src/signup';
 import Homepage from './src/homepage';
 import CartPage from './src/cartPage';
+import Profilepage from './src/profile';
+import Directionspage from './src/directions';
+import Orderspage from './src/orders';
+import Favoritespage from './src/favors';
 
 
 
@@ -12,7 +16,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer >
-            <Stack.Navigator initialRouteName='login'>
+            <Stack.Navigator initialRouteName='home'>
                   <Stack.Screen name='signup' options={{title:'signup', headerShown:false}}>
                     {(props)=> <SignupPage {...props} />}
                   </Stack.Screen>
@@ -24,6 +28,18 @@ function App() {
                   </Stack.Screen>
                   <Stack.Screen name='cart' options={{title:'cart', headerShown:false}}>
                     {(props)=> <CartPage {...props} />}
+                  </Stack.Screen>
+                  <Stack.Screen name='profile' options={{title:'profile', headerShown:false}}>
+                    {(props)=> <Profilepage {...props} />}
+                  </Stack.Screen>
+                  <Stack.Screen name='directions' options={{title:'directions', headerShown:false}}>
+                    {(props)=> <Directionspage {...props} />}
+                  </Stack.Screen>
+                  <Stack.Screen name='orders' options={{title:'orders', headerShown:false}}>
+                    {(props)=> <Orderspage {...props} />}
+                  </Stack.Screen>
+                  <Stack.Screen name='favors' options={{title:'favors', headerShown:false}}>
+                    {(props)=> <Favoritespage {...props} />}
                   </Stack.Screen>
             </Stack.Navigator>
     </NavigationContainer>
