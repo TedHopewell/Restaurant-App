@@ -18,6 +18,9 @@ import image5 from '../assets/kota1.jpg'
 import Foods from './foods';
 import LightFood from './lightFood';
 import KotasMenu from './kotas';
+import ConfirmationPopup from './modal';
+
+import { auth } from './firebase';
 
 const ContentComp = () => {
     return(
@@ -38,18 +41,54 @@ const ContentKotas = () => {
 
 export default function Homepage({navigation}) {
 
+  const [visible, setVisible] = React.useState(false);
   const [show, setShow] = React.useState(false);
   const [showLight, setShowLight] = React.useState(false);
   const [showKota, setShowKota] = React.useState(false);
+
+  const signOut = async()=>{
+    auth
+    .signOut()
+    .then(() => console.log('User signed out!'));
+    navigation.push('login')
+    setVisible(false);
+    
+}
+const close = () =>{
+    setVisible(false)
+};
+
+const confirmSignOut = async()=>{
+    setVisible(true);
+}
+
   return (
     <SafeAreaView style={styles.container}>
         
         <View style={styles.topView}>
                 
-                <Text style={{color:'black', fontSize:30,paddingTop:28, paddingLeft:20}}>Welcome,</Text><Text style={{color:'black', fontSize:30,paddingTop:28,fontWeight:'bold',marginRight:10,}}>Hopewell</Text>
+                        <Text style=
+                            {{color:'black', 
+                              fontSize:30,
+                              paddingTop:28,
+                              paddingLeft:20
+                              }}
+                              >
+                                Welcome,
+                        </Text>
+                                <Text style=
+                                    {{color:'black',
+                                      fontSize:30,
+                                      paddingTop:28,
+                                      fontWeight:'bold',
+                                      marginRight:10,
+                                      }}
+                                      >
+                                        Hopewell
+                                </Text>
                 <TouchableOpacity  onPress={()=> {navigation.push('profile')}}><Image source={image1} style={styles.profilePic}></Image></TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={()=> {navigation.push('login')}} style={{height:20, width:20,alignSelf:'flex-start',paddingLeft:10}}>
+        <TouchableOpacity onPress={confirmSignOut} style={{height:20, width:20,alignSelf:'flex-start',paddingLeft:10}}>
                     {/* <FontAwesomeIcon icon={faArrowLeft}  /> */}
                     <Icon 
                         style={styles.iconicIcon}
@@ -60,6 +99,27 @@ export default function Homepage({navigation}) {
                         
                     />
         </TouchableOpacity>
+        <View>
+          <ConfirmationPopup visible={visible}>
+            {/* <Image
+              source={modalImage}
+              style={{ width: 50, height: 50, alignSelf: "center" }}
+            /> */}
+            <Text
+              style={{ marginVertical: 30, fontSize: 20, textAlign: "center" }}
+            >
+              You are about to be signed out, Do you want to continue?
+            </Text>
+            <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+                <TouchableOpacity style={{backgroundColor:'rgb(203,210,143)',width:80,height:30,borderRadius:20,textAlign:'center',justifyContent:'center'}} onPress={() => close()}>
+                <Text>Cancel</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{backgroundColor: "orange",width:80,height:30,borderRadius:20,textAlign:'center',justifyContent:'center'}} onPress={() => signOut()}>
+                <Text>Logout</Text>
+                </TouchableOpacity>
+            </View>    
+          </ConfirmationPopup>
+        </View>
 
         <ScrollView style={styles.midView} showsVerticalScrollIndicator={false}>
                 <View style={styles.special}>

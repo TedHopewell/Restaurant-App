@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View,Dimensions, Image, TextInput, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import image2 from "../assets/pot1.jpg"
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../src/firebase';
+import googleIcon from '../assets/google.png'
 
 
-
+const provider = new GoogleAuthProvider();
 
 export default function LoginPage({navigation}) {
   const [email, setEmail] = React.useState('');
@@ -13,13 +14,21 @@ export default function LoginPage({navigation}) {
 
   const login = (() =>{
     signInWithEmailAndPassword(auth,email,password).then(()=>{
-      alert("Login Successful")
       navigation.push('home');
     }).catch((error) => {
-      alert(error);
       console.log(error);
     })
   })
+
+  const LoginWithGoogle =() =>{
+    signInWithPopup(auth,provider).
+    then((result)=>{
+      console.log((result));
+      navigation.push("home")
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }
   
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
@@ -29,15 +38,19 @@ export default function LoginPage({navigation}) {
       <View style={styles.loginBox}>
             <Text style={styles.loginText}>Welcome Back</Text>
             <TextInput style={styles.inputBox} placeholder='Username here...' onChangeText={(email) => setEmail(email)} ></TextInput>
-            <TextInput style={styles.inputBox} placeholder='Password here...' onChangeText={(password) => setPassword(password)}></TextInput>
+            <TextInput style={styles.inputBox} placeholder='Password here...' secureTextEntry={true} onChangeText={(password) => setPassword(password)}></TextInput>
             <TouchableOpacity style={styles.loginBtn} >
                     <Text style={{fontSize:20,fontWeight:'800'}} onPress={login}>Sign In</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.loginBtnGoogle} >
+                    <Image source={googleIcon} style={{width:20,height:20}} />
+                    <Text style={{fontSize:20,fontWeight:'800',paddingRight:20}} onPress={LoginWithGoogle}>Sign In</Text>
             </TouchableOpacity>
             <View style={styles.hyperLinksContainer}>
               <TouchableOpacity onPress={()=> {navigation.push('signup')}}>
                 <Text style={styles.hyperLink}>Create Account</Text>
                 </TouchableOpacity>  
-              <TouchableOpacity >
+              <TouchableOpacity onPress={() => navigation.push('forgotPassword')}>
                 <Text style={styles.hyperLink}>Forgot Password?</Text>
               </TouchableOpacity>
             </View>
@@ -97,7 +110,19 @@ const styles = StyleSheet.create({
     color:'blue',
   },
   loginBtn:{
+    alignSelf:'center',
     backgroundColor:'orange',
+    height:35,
+    width:deviceWidth-50,
+    textAlign:'center',
+    borderRadius:8,
+    marginTop:20,
+  },
+  loginBtnGoogle:{
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'center',
+    backgroundColor:'white',
     height:35,
     width:deviceWidth-50,
     textAlign:'center',

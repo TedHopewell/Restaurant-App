@@ -7,7 +7,7 @@ const Favoritespage = ({navigation}) => {
   return (
     <View style={styles.container}>
         <View style={styles.topView}>
-        <TouchableOpacity onPress={()=> {navigation.push('home')}} style={{height:20, width:20,alignSelf:'flex-start',paddingLeft:10}}>
+        <TouchableOpacity onPress={() => {navigation.goBack();}} style={{height:20, width:20,alignSelf:'flex-start',paddingLeft:10}}>
                     {/* <FontAwesomeIcon icon={faArrowLeft}  /> */}
                     <Icon 
                         style={styles.iconicIcon}

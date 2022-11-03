@@ -9,7 +9,7 @@ import Profilepage from './src/profile';
 import Directionspage from './src/directions';
 import Orderspage from './src/orders';
 import Favoritespage from './src/favors';
-
+import Forgot from './src/forgotPassword';
 
 
 const Stack = createNativeStackNavigator();
@@ -40,6 +40,9 @@ function App() {
                   </Stack.Screen>
                   <Stack.Screen name='favors' options={{title:'favors', headerShown:false}}>
                     {(props)=> <Favoritespage {...props} />}
+                  </Stack.Screen>
+                  <Stack.Screen name='forgotPassword' options={{title:'forgotPassword', headerShown:false}}>
+                    {(props)=> <Forgot {...props} />}
                   </Stack.Screen>
             </Stack.Navigator>
     </NavigationContainer>

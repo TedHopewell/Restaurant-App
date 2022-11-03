@@ -10,7 +10,7 @@ export default function CartPage({navigation}) {
     <View style={styles.container}>
         <View style={styles.topView}>
             <Image source={img} style={styles.topViewImg}></Image>
-            <TouchableOpacity onPress={()=> {navigation.push('home')}}  style={{height:20, width:20,alignSelf:'flex-start',marginLeft:20}}>
+            <TouchableOpacity onPress={() => {navigation.goBack();}} style={{height:20, width:20,alignSelf:'flex-start',marginLeft:20}}>
                     <FontAwesomeIcon icon={faArrowLeft}  />
             </TouchableOpacity>
             <Text style={{fontSize:30,fontWeight:'bold', fontFamily:'roboto',paddingLeft:20}}>Pap and Steak</Text>
