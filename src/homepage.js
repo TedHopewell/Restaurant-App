@@ -46,6 +46,7 @@ export default function Homepage({navigation}) {
   const [showLight, setShowLight] = React.useState(false);
   const [showKota, setShowKota] = React.useState(false);
 
+  let user = auth.currentUser;
   const signOut = async()=>{
     auth
     .signOut()
@@ -69,7 +70,7 @@ const confirmSignOut = async()=>{
                 
                         <Text style=
                             {{color:'black', 
-                              fontSize:30,
+                              fontSize:20,
                               paddingTop:28,
                               paddingLeft:20
                               }}
@@ -78,13 +79,13 @@ const confirmSignOut = async()=>{
                         </Text>
                                 <Text style=
                                     {{color:'black',
-                                      fontSize:30,
-                                      paddingTop:28,
+                                      fontSize:16,
+                                      paddingTop:33,
                                       fontWeight:'bold',
-                                      marginRight:10,
+                                      
                                       }}
                                       >
-                                        Hopewell
+                                        {user.displayName}
                                 </Text>
                 <TouchableOpacity  onPress={()=> {navigation.push('profile')}}><Image source={image1} style={styles.profilePic}></Image></TouchableOpacity>
         </View>

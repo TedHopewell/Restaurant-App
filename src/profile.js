@@ -1,9 +1,12 @@
-import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity,Image } from 'react-native'
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { auth } from './firebase';
 
 const Profilepage = ({navigation}) => {
+
+  let user = auth.currentUser;
   return (
     <View style={styles.container}>
         <View style={styles.topView}>
@@ -22,7 +25,7 @@ const Profilepage = ({navigation}) => {
         </View>
         <View style={styles.midView}>
             <View style={{backgroundColor:'white',height:150,width:150,marginTop:-50,borderRadius:100}}>
-
+                    <Image source={user.photoURL} />
             </View>
             <Text style={{color:'grey',paddingTop:20}}>25, Male</Text>
 

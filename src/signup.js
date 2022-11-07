@@ -16,7 +16,7 @@ export default function SignupPage({navigation}) {
     createUserWithEmailAndPassword(auth,email,password).then(async(userCredentials)=>{
       const profileName = userId;
       setUser(() => ({...userCredentials.user}));
-      updateProfile(auth.currentUser, {profileName:profileName}).then().catch();
+      updateProfile(auth.currentUser, {displayName:profileName}).then().catch();
       alert(profileName + "Registered successfully");
       navigation.push('home');
     }).catch((error) =>{
