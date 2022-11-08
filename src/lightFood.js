@@ -39,22 +39,28 @@ export default function LightFood() {
   return (
 
     <View  style={{flexDirection:'row', flexWrap:'wrap', justifyContent:'space-evenly'}}>
-            {foods.map((food) => (
+            {/* {foods.map((food) => (
 
-                <View style={styles.mealCards} key={food.id}>
+                
+
+            ))} */}
+            <View style={styles.mealCards} 
+                    // key={food.id}
+                    >
                     <TouchableOpacity><Image source={Potjiekos} style={styles.meal1}></Image></TouchableOpacity>
-                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>{food.description}</Text>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>
+                        {/* {food.description} */}
+                        potato monate
+                        </Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
-                        <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R{food.price}</Text>
+                        <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>
+                            {/* R{food.price} */}
+                            R30.00
+                            </Text>
                     </TouchableOpacity>
 
-                </View>
-
-            ))}
-
-
-
-            {/* <View style={styles.mealCards}>
+            </View>
+            <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={rice} style={styles.meal1}></Image></TouchableOpacity>
                     <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>rice and stew</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
@@ -88,7 +94,7 @@ export default function LightFood() {
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R30.00</Text>
                     </TouchableOpacity>
-            </View> */}
+            </View>
     </View>
   );
 }
