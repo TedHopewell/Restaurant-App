@@ -15,58 +15,53 @@ import { async } from '@firebase/util';
 
 export default function Foods() {
     
-//   const [foods, setFoods] = React.useState([]);
-//   const foodRef = collection(db, "Foods")
-//   console.log('hello');
+  const [foods, setFoods] = React.useState([]);
+  const foodRef = collection(db, "Foods")
+  console.log('hello');
 
-//   const getItems = async() => {
-//     let q = query(foodRef, where('type','==', 'heavy'))
-//     let data = await getDocs(q);
-//     setFoods(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
-//     console.log(foods);
+  const getItems = async() => {
+    let q = query(foodRef, where('type','==', 'heavy'))
+    let data = await getDocs(q);
+    setFoods(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
+    console.log(foods);
     
-//   }
+  }
 
   
   
 
-//   React.useEffect(()=>{
-//     getItems();
+  React.useEffect(()=>{
+    getItems();
    
-//   }
+  }
 
-//    ,[]
-//   )
+  ,[])
 
   return (
-    <View style={{flexDirection:'row', flexWrap:'wrap', justifyContent:'space-evenly'}}>
-        
-        {/* {foods.map((food) => (
-
+        <View style={{flexDirection:'row', flexWrap:'wrap', justifyContent:'space-evenly'}}>
             
-            
-        ))} */}
-        
-            
+            {foods.map((food) => (
                 <View style={styles.mealCards} 
-                    // key={food.id}
-
-                >
-                    <TouchableOpacity><Image source={pap} style={styles.meal1}></Image></TouchableOpacity>
-                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>
-                    {/* {food.description} */}
-                    A classic kasi flavor steak and pap
+                key={food.id} >
+                <TouchableOpacity><Image source={pap} style={styles.meal1}></Image></TouchableOpacity>
+            <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>
+                {food.description}
+                {/* A classic kasi flavor steak and pap */}
+            </Text>
+            <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
+                <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>
+                    R{food.price}
+                    {/* R80.00 */}
                 </Text>
-                <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
-                    <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>
-                        {/* R{food.price} */}
-                        R80.00
-                    </Text>
-                </TouchableOpacity>
+            </TouchableOpacity>
+        
+        </View>
             
-            </View>
             
-            <View style={styles.mealCards}>
+        ))}
+        
+            
+            {/* <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={chicken} style={styles.meal1}></Image></TouchableOpacity>
                     <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>A classing pap and hardbody</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
@@ -110,7 +105,7 @@ export default function Foods() {
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R60.00</Text>
                     </TouchableOpacity>
                     
-            </View>
+            </View> */}
         
     </View>
   );

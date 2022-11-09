@@ -3,6 +3,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { auth } from './firebase';
+import image1 from '../assets/img.jpeg'
 
 const Profilepage = ({navigation}) => {
 
@@ -24,20 +25,19 @@ const Profilepage = ({navigation}) => {
 
         </View>
         <View style={styles.midView}>
-            <View style={{backgroundColor:'white',height:150,width:150,marginTop:-50,borderRadius:100}}>
-                    <Image source={user.photoURL} />
-            </View>
-            <Text style={{color:'grey',paddingTop:20}}>25, Male</Text>
+            <Image style={{backgroundColor:'white',height:150,width:150,marginTop:-50,borderRadius:100}} source={image1} />
+    
+            <Text style={{color:'grey',paddingTop:20,paddingLeft:30,paddingRight:20}}>Welcome<Text style={{color:'black',paddingTop:20,fontWeight:'bold'}}> {user.displayName}</Text> It's good to have you back</Text>
 
             <View style={{shadowOpacity:4,width:300,height:50,backgroundColor:'white',marginTop:40}}>
-
+                <Text style={{paddingTop:15,paddingLeft:10}}>{user.email}</Text>
             </View>
             <View style={{shadowOpacity:4,width:300,height:50,backgroundColor:'white',marginTop:20}}>
-
+                <Text style={{paddingTop:15,paddingLeft:10}}>{user.displayName}</Text>
             </View>
 
             <View style={{shadowOpacity:4,width:300,height:50,backgroundColor:'white',marginTop:20}}>
-
+                <Text style={{padding:10}}>Profile page still under development</Text>
             </View>
 
 
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
         flex:12,
         width:'100%',
         alignItems:'center',
+        backgroundColor:'rgb(252,246,246)',
 
     },
     bottomView:{

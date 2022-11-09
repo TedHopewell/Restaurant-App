@@ -7,6 +7,7 @@ import {auth} from '../src/firebase'
 
 
 export default function SignupPage({navigation}) {
+  const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [userId, setUserID] = React.useState('');
@@ -37,6 +38,7 @@ export default function SignupPage({navigation}) {
       <View style={styles.loginBox}>
             <Text style={styles.loginText}>Register Here</Text>
             <TextInput style={styles.inputBox} placeholder='Email Address here...' onChangeText={(email) => setEmail(email)} ></TextInput>
+            <TextInput style={styles.inputBox} placeholder='Phone Number...' onChangeText={(password) => setPhone(phone)}></TextInput>
             <TextInput style={styles.inputBox} placeholder='Username here...' onChangeText={(userId) => setUserID(userId)}></TextInput>
             <TextInput style={styles.inputBox} placeholder='Password here...' onChangeText={(password) => setPassword(password)}></TextInput>
             <TouchableOpacity style={styles.loginBtn} onPress={register}>
