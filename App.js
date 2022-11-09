@@ -10,6 +10,7 @@ import Directionspage from './src/directions';
 import Orderspage from './src/orders';
 import Favoritespage from './src/favors';
 import Forgot from './src/forgotPassword';
+import { Foods } from './src/foods';
 
 
 const Stack = createNativeStackNavigator();
@@ -44,6 +45,9 @@ function App() {
                   <Stack.Screen name='forgotPassword' options={{title:'forgotPassword', headerShown:false}}>
                     {(props)=> <Forgot {...props} />}
                   </Stack.Screen>
+                  {/* <Stack.Screen name='foods' options={{title:'foods', headerShown:false}}>
+                    {(props)=> <Foods {...props} />}
+                  </Stack.Screen> */}
             </Stack.Navigator>
     </NavigationContainer>
   );

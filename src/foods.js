@@ -13,32 +13,30 @@ import { db } from './firebase';
 import { async } from '@firebase/util';
 
 
-
-
 export default function Foods() {
     
-  const [foods, setFoods] = React.useState([]);
-  const foodRef = collection(db, "Foods")
-  console.log('hello');
+//   const [foods, setFoods] = React.useState([]);
+//   const foodRef = collection(db, "Foods")
+//   console.log('hello');
 
-  const getItems = async() => {
-    let q = query(foodRef, where('type','==', 'heavy'))
-    let data = await getDocs(q);
-    setFoods(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
-    console.log(foods);
+//   const getItems = async() => {
+//     let q = query(foodRef, where('type','==', 'heavy'))
+//     let data = await getDocs(q);
+//     setFoods(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
+//     console.log(foods);
     
-  }
+//   }
 
   
   
 
-  React.useEffect(()=>{
-    getItems();
+//   React.useEffect(()=>{
+//     getItems();
    
-  }
+//   }
 
-   ,[]
-  )
+//    ,[]
+//   )
 
   return (
     <View style={{flexDirection:'row', flexWrap:'wrap', justifyContent:'space-evenly'}}>

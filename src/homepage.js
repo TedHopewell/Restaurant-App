@@ -20,6 +20,7 @@ import LightFood from './lightFood';
 import KotasMenu from './kotas';
 import ConfirmationPopup from './modal';
 
+
 import { auth } from './firebase';
 
 const ContentComp = () => {
