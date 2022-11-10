@@ -41,11 +41,27 @@ const ContentKotas = () => {
 
 
 export default function Homepage({navigation}) {
-
+  
   const [visible, setVisible] = React.useState(false);
   const [show, setShow] = React.useState(false);
   const [showLight, setShowLight] = React.useState(false);
   const [showKota, setShowKota] = React.useState(false);
+  const categories=[
+                    'Heavy Meals','Light Meals', 'Kota Menu'
+                   ];
+
+  const [currentSelectedIndex, setCurrentSelectedIndex]= React.useState(0)
+  const CategoryList=()=>{
+    return(
+      <View style={styles.categoryContainer}>
+        {categories.map((item,index)=>(
+          <TouchableOpacity key={index} onPress={()=>setCurrentSelectedIndex(index)}>
+            <Text style={[styles.categoryText , currentSelectedIndex== index && styles.categoryTextSelected]}>{item}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+    )
+  }
 
   let user = auth.currentUser;
   const signOut = async()=>{
@@ -152,30 +168,31 @@ const confirmSignOut = async()=>{
                         <TouchableOpacity onPress={() => setShow(!show)} >
                             <Image source={image3}  style={styles.foodTypes}/>
                         </TouchableOpacity>
-                        <Text style={{color:'black'}}>Heavy Meals</Text>
-                        {/* <View style={styles.line}></View> */}
+                        <Text style={{color:'black'}}>{categories[0]}</Text>
+                        
                     </View>
                     <View style={styles.menuTypes}>
                         <TouchableOpacity onPress={() => setShowLight(!showLight)}>
                             <Image source={image4}  style={styles.foodTypes}/>
                         </TouchableOpacity>
-                        <Text style={{color:'black'}}>Light Meals</Text>
+                        <Text style={{color:'black'}}>{categories[1]}</Text>
                     </View>
                     <View style={styles.menuTypes}>
                         <TouchableOpacity onPress={() => setShowKota(!showKota)}>
                             <Image source={image5}  style={styles.foodTypes}/>
                         </TouchableOpacity>
-                        <Text style={{color:'black'}}>Kota Menu</Text>
+                        <Text style={{color:'black'}}>{categories[2]}</Text>
                     </View>
-                    
+                       {/* <CategoryList />   */}
                 </View>
+                
                 
                 <View style={styles.menuList}>
                     {show && <ContentComp />}
                     {showLight && <Content />}
                     {showKota && <ContentKotas />}
                 </View>
-
+            
         </ScrollView>
         <View style={styles.bottomView}>
             <TouchableOpacity onPress={()=> {navigation.push('home')}}>
@@ -333,5 +350,23 @@ const styles = StyleSheet.create({
         marginLeft:5,
         width:20
     },
+
+    categoryContainer:{
+        flexDirection:'row',
+        marginTop:30,
+        marginBottom:20,
+        justifyContent:'space-between'
+      },
+      categoryText:{
+        fontSize:16,
+        color:'grey',
+        fontWeight:'bold'
+      },
+      categoryTextSelected:{
+        color:'white',
+        paddingBottom:5,
+        borderBottomWidth:2,
+        borderColor:'blue'
+      },
    
 })
