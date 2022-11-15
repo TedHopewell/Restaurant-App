@@ -6,13 +6,46 @@ import thirdKota from '../assets/kota3.jpg'
 import fourthKota from '../assets/kota4.jpg'
 import fifthKota from '../assets/kota5.jpg'
 import sixthKota from '../assets/kota6.jpg'
+import {collection, getDocs, query, where} from 'firebase/firestore'
+import { db } from './firebase';
 
 
 
 export default function KotasMenu() {
+    const [foods, setFoods] = React.useState([]);
+    const foodRef = collection(db, "Foods")
+    console.log('hello');
+  
+    const getItems = async() => {
+      let q = query(foodRef, where('type','==', 'kotas'))
+      let data = await getDocs(q);
+      setFoods(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
+      console.log(foods);
+      
+    }
+  
+    
+    
+  
+    React.useEffect(()=>{
+      getItems();
+      // StatusBar.setBarStyle('light-content', true)
+     
+    }
+  
+    ,[])
   return (
     <View  style={{flexDirection:'row', flexWrap:'wrap', justifyContent:'space-evenly'}}>
-            <View style={styles.mealCards}>
+        {foods.map((food) =>(
+            <View style={styles.mealCards} key={food.id} >
+                <TouchableOpacity><Image source={food.image} style={styles.meal1}></Image></TouchableOpacity>
+                <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>{food.description}</Text>
+                <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
+                    <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R{food.price}</Text>
+                </TouchableOpacity>
+            </View>
+        ))}
+            {/* <View style={styles.mealCards}>
                     <TouchableOpacity><Image source={firstKota} style={styles.meal1}></Image></TouchableOpacity>
                     <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>Classic stew beef Kota</Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
@@ -53,7 +86,7 @@ export default function KotasMenu() {
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R40.00</Text>
                     </TouchableOpacity>
-            </View>
+            </View> */}
     </View>
   );
 }

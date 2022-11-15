@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View,ScrollView,Dimensions,SafeAreaView, Image, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View,ScrollView,Dimensions,SafeAreaView, Image, TextInput, TouchableOpacity, StatusBar } from 'react-native';
 import pap from '../assets/pap2.jpg'
 import chicken from '../assets/chicken.jpg'
 import chicken2 from '../assets/chicken2.jpg'
@@ -11,6 +11,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import {collection, getDocs, query, where} from 'firebase/firestore'
 import { db } from './firebase';
 import { async } from '@firebase/util';
+
 
 
 export default function Foods() {
@@ -32,6 +33,7 @@ export default function Foods() {
 
   React.useEffect(()=>{
     getItems();
+    // StatusBar.setBarStyle('light-content', true)
    
   }
 
@@ -41,17 +43,14 @@ export default function Foods() {
         <View style={{flexDirection:'row', flexWrap:'wrap', justifyContent:'space-evenly'}}>
             
             {foods.map((food) => (
-                <View style={styles.mealCards} 
-                key={food.id} >
-                <TouchableOpacity><Image source={pap} style={styles.meal1}></Image></TouchableOpacity>
+                <View style={styles.mealCards} key={food.id} >
+                <TouchableOpacity><Image source={food.image} style={styles.meal1}></Image></TouchableOpacity>
             <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>
                 {food.description}
-                {/* A classic kasi flavor steak and pap */}
             </Text>
             <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                 <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>
                     R{food.price}
-                    {/* R80.00 */}
                 </Text>
             </TouchableOpacity>
         

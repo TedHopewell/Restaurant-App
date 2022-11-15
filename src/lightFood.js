@@ -13,48 +13,59 @@ import { db } from './firebase';
 
 export default function LightFood() {
 
-    // const [foods, setFoods] = React.useState([]);
-    // const foodRef = collection(db, "Foods")
-    // console.log('hello');
+    const [foods, setFoods] = React.useState([]);
+    const foodRef = collection(db, "Foods")
+    console.log('hello');
   
-    // const getItems = async() => {
-    //   let q = query(foodRef, where('type','==', 'light'))
-    //   let data = await getDocs(q);
-    //   setFoods(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
-    //   console.log(foods);
+    const getItems = async() => {
+      let q = query(foodRef, where('type','==', 'light'))
+      let data = await getDocs(q);
+      setFoods(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
+      console.log(foods);
       
-    // }
+    }
   
     
     
   
-    // React.useEffect(()=>{
-    //   getItems();
+    React.useEffect(()=>{
+      getItems();
      
-    // }
+    }
   
-    //  ,[]
-    // )
+     ,[]
+    )
 
   return (
 
     <View  style={{flexDirection:'row', flexWrap:'wrap', justifyContent:'space-evenly'}}>
-            {/* {foods.map((food) => (
+            {foods.map((food) => (
 
-                mealcards goes here
+                    <View style={styles.mealCards} key={food.id}>
+                    <TouchableOpacity><Image source={food.image} style={styles.meal1}></Image></TouchableOpacity>
+                    <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>
+                            {food.description}
+                        </Text>
+                    <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
+                        <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>
+                                R{food.price}
+                            </Text>
+                    </TouchableOpacity>
 
-            ))} */}
-            <View style={styles.mealCards} 
-                    // key={food.id}
+                    </View>
+
+            ))}
+            {/* <View style={styles.mealCards} 
+                    
                     >
                     <TouchableOpacity><Image source={Potjiekos} style={styles.meal1}></Image></TouchableOpacity>
                     <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>
-                        {/* {food.description} */}
+                        
                         potato monate
                         </Text>
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>
-                            {/* R{food.price} */}
+                            
                             R30.00
                             </Text>
                     </TouchableOpacity>
@@ -94,7 +105,7 @@ export default function LightFood() {
                     <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
                         <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>R30.00</Text>
                     </TouchableOpacity>
-            </View>
+            </View> */}
     </View>
   );
 }

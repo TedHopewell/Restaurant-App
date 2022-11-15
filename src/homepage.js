@@ -21,6 +21,7 @@ import KotasMenu from './kotas';
 import ConfirmationPopup from './modal';
 
 
+
 import { auth } from './firebase';
 
 const ContentComp = () => {
@@ -40,6 +41,7 @@ const ContentKotas = () => {
 }
 
 
+
 export default function Homepage({navigation}) {
   
   const [visible, setVisible] = React.useState(false);
@@ -50,18 +52,18 @@ export default function Homepage({navigation}) {
                     'Heavy Meals','Light Meals', 'Kota Menu'
                    ];
 
-  const [currentSelectedIndex, setCurrentSelectedIndex]= React.useState(0)
-  const CategoryList=()=>{
-    return(
-      <View style={styles.categoryContainer}>
-        {categories.map((item,index)=>(
-          <TouchableOpacity key={index} onPress={()=>setCurrentSelectedIndex(index)}>
-            <Text style={[styles.categoryText , currentSelectedIndex== index && styles.categoryTextSelected]}>{item}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-    )
-  }
+//   const [currentSelectedIndex, setCurrentSelectedIndex]= React.useState(0)
+//   const CategoryList=()=>{
+//     return(
+//       <View style={styles.categoryContainer}>
+//         {categories.map((item,index)=>(
+//           <TouchableOpacity key={index} onPress={()=>setCurrentSelectedIndex(index)}>
+//             <Text style={[styles.categoryText , currentSelectedIndex== index && styles.categoryTextSelected]}>{item}</Text>
+//           </TouchableOpacity>
+//         ))}
+//       </View>
+//     )
+//   }
 
   let user = auth.currentUser;
   const signOut = async()=>{
@@ -79,6 +81,7 @@ const close = () =>{
 const confirmSignOut = async()=>{
     setVisible(true);
 }
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -147,7 +150,23 @@ const confirmSignOut = async()=>{
                             <Text>Order here..</Text>
                         </TouchableOpacity>
                     </View>
-                        <Image source={image2} style={styles.adImage}></Image>
+                    <ScrollView
+                        style={{ flex: 1 }}
+                        pagingEnabled={true}
+                        horizontal={true}
+                        scrollEnabled={true}
+                        scrollEventThrottle={16} >
+                            <TouchableOpacity>
+                            <Image source={image2} style={styles.adImage}></Image>
+                            </TouchableOpacity>
+                            <View>
+                            <Image source={image3} style={styles.adImage}></Image>
+                            </View>
+                            <View>
+                            <Image source={image4} style={styles.adImage}></Image>
+                            </View> 
+                    </ScrollView>
+                        
                 </View>
                 <Text style={styles.searchBoxContainer}>
                     <TouchableOpacity>
