@@ -10,7 +10,6 @@ import Directionspage from './src/directions';
 import Orderspage from './src/orders';
 import Favoritespage from './src/favors';
 import Forgot from './src/forgotPassword';
-import { Foods } from './src/foods';
 
 
 const Stack = createNativeStackNavigator();

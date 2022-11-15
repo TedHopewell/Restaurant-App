@@ -15,55 +15,68 @@ import image2 from '../assets/nyama1.jpg'
 import image3 from '../assets/mabele.jpg'
 import image4 from '../assets/rice.jpg'
 import image5 from '../assets/kota1.jpg'
-import Foods from './foods';
-import LightFood from './lightFood';
-import KotasMenu from './kotas';
 import ConfirmationPopup from './modal';
+import {collection, getDocs, query, where} from 'firebase/firestore'
+import { db } from './firebase';
 
 
 
 import { auth } from './firebase';
 
-const ContentComp = () => {
-    return(
-        <Foods />
-    )
-}
-const Content = () => {
-    return(
-        <LightFood />
-    )
-}
-const ContentKotas = () => {
-    return(
-        <KotasMenu />
-    )
-}
 
 
 
 export default function Homepage({navigation}) {
   
   const [visible, setVisible] = React.useState(false);
-  const [show, setShow] = React.useState(false);
-  const [showLight, setShowLight] = React.useState(false);
-  const [showKota, setShowKota] = React.useState(false);
   const categories=[
                     'Heavy Meals','Light Meals', 'Kota Menu'
                    ];
+  const [foods, setFoods] = React.useState([]);
+  const foodRef = collection(db, "Foods")
 
-//   const [currentSelectedIndex, setCurrentSelectedIndex]= React.useState(0)
-//   const CategoryList=()=>{
-//     return(
-//       <View style={styles.categoryContainer}>
-//         {categories.map((item,index)=>(
-//           <TouchableOpacity key={index} onPress={()=>setCurrentSelectedIndex(index)}>
-//             <Text style={[styles.categoryText , currentSelectedIndex== index && styles.categoryTextSelected]}>{item}</Text>
-//           </TouchableOpacity>
-//         ))}
-//       </View>
-//     )
-//   }
+  const getItems = async() => {
+    let q = query(foodRef)
+    let data = await getDocs(q);
+    setFoods(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
+    console.log(foods);
+    
+  }
+
+  const Food = async() => {
+    let q = query(foodRef, where('type','==', 'heavy'))
+    let data = await getDocs(q);
+    setFoods(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
+    console.log(foods);
+    
+  }
+
+  const Light = async() => {
+    let q = query(foodRef, where('type','==', 'light'))
+    let data = await getDocs(q);
+    setFoods(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
+    console.log(foods);
+    
+  }
+
+  const Kotas = async() => {
+    let q = query(foodRef, where('type','==', 'kotas'))
+    let data = await getDocs(q);
+    setFoods(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
+    console.log(foods);
+    
+  }
+  
+
+  React.useEffect(()=>{
+    getItems();
+ 
+   
+  }
+
+  ,[])
+
+
 
   let user = auth.currentUser;
   const signOut = async()=>{
@@ -77,6 +90,7 @@ export default function Homepage({navigation}) {
 const close = () =>{
     setVisible(false)
 };
+
 
 const confirmSignOut = async()=>{
     setVisible(true);
@@ -110,7 +124,7 @@ const confirmSignOut = async()=>{
                 <TouchableOpacity  onPress={()=> {navigation.push('profile')}}><Image source={image1} style={styles.profilePic}></Image></TouchableOpacity>
         </View>
         <TouchableOpacity onPress={confirmSignOut} style={{height:20, width:20,alignSelf:'flex-start',paddingLeft:10}}>
-                    {/* <FontAwesomeIcon icon={faArrowLeft}  /> */}
+                    
                     <Icon 
                         style={styles.iconicIcon}
                         size='30'
@@ -170,7 +184,7 @@ const confirmSignOut = async()=>{
                 </View>
                 <Text style={styles.searchBoxContainer}>
                     <TouchableOpacity>
-                        {/* <FontAwesomeIcon icon={faSearch} style={{paddingLeft:5,color:'black',paddingTop:5}} /> */}
+                        
                         <Icon
                             style={styles.iconicIcon2}
                             size='30'
@@ -183,33 +197,50 @@ const confirmSignOut = async()=>{
                     <TextInput style={styles.srchBox} placeholder='Search for food' />
                 </Text>
                 <View style={styles.menuView}>
+
                     <View style={styles.menuTypes}>
-                        <TouchableOpacity onPress={() => setShow(!show)} >
+                        <TouchableOpacity onPress={Food} >
                             <Image source={image3}  style={styles.foodTypes}/>
                         </TouchableOpacity>
                         <Text style={{color:'black'}}>{categories[0]}</Text>
-                        
                     </View>
                     <View style={styles.menuTypes}>
-                        <TouchableOpacity onPress={() => setShowLight(!showLight)}>
+                        <TouchableOpacity onPress={Light}>
                             <Image source={image4}  style={styles.foodTypes}/>
                         </TouchableOpacity>
                         <Text style={{color:'black'}}>{categories[1]}</Text>
                     </View>
                     <View style={styles.menuTypes}>
-                        <TouchableOpacity onPress={() => setShowKota(!showKota)}>
+                        <TouchableOpacity onPress={Kotas}>
                             <Image source={image5}  style={styles.foodTypes}/>
                         </TouchableOpacity>
                         <Text style={{color:'black'}}>{categories[2]}</Text>
                     </View>
-                       {/* <CategoryList />   */}
+
                 </View>
                 
                 
                 <View style={styles.menuList}>
-                    {show && <ContentComp />}
-                    {showLight && <Content />}
-                    {showKota && <ContentKotas />}
+                   
+                    <View style={{flexDirection:'row', flexWrap:'wrap', justifyContent:'space-evenly'}}>
+            
+                        {foods.map((food) => (
+                            <View style={styles.mealCards} key={food.id} >
+                            <TouchableOpacity><Image source={food.image} style={styles.meal1}></Image></TouchableOpacity>
+                            <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>
+                                {food.description}
+                            </Text>
+                            <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
+                                <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>
+                                    R{food.price}
+                                </Text>
+                            </TouchableOpacity>
+                    
+                            </View>
+                        
+                        
+                        ))}
+                    </View>
                 </View>
             
         </ScrollView>
@@ -387,5 +418,18 @@ const styles = StyleSheet.create({
         borderBottomWidth:2,
         borderColor:'blue'
       },
+      mealCards:{
+        height:220,
+        width:150,
+        backgroundColor:'rgb(203,210,143)',
+        borderRadius:20,
+        marginTop:10
+    },
+    meal1:{
+        height:120,
+        width:150,
+        borderRadius:20,
+        paddingRight:80,
+    }
    
 })
