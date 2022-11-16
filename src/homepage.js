@@ -1,15 +1,13 @@
 
 import React from 'react'
-import { StyleSheet, Text, View,ScrollView,Dimensions,SafeAreaView, Image, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View,ScrollView,Dimensions,SafeAreaView, Image, TextInput, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Icon from 'react-native-vector-icons/FontAwesome';
-// import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faDirections } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
-// import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import image1 from '../assets/img.jpeg'
 import image2 from '../assets/nyama1.jpg'
 import image3 from '../assets/mabele.jpg'
@@ -19,9 +17,8 @@ import ConfirmationPopup from './modal';
 import {collection, getDocs, query, where} from 'firebase/firestore'
 import { db } from './firebase';
 
-
-
 import { auth } from './firebase';
+import ModalImg from '../assets/cross3.png'
 
 
 
@@ -79,6 +76,7 @@ export default function Homepage({navigation}) {
 
 
   let user = auth.currentUser;
+  const imageSrc=(user.photoURL)
   const signOut = async()=>{
     auth
     .signOut()
@@ -96,8 +94,7 @@ const confirmSignOut = async()=>{
     setVisible(true);
 }
 
-
-  return (
+return (
     <SafeAreaView style={styles.container}>
         
         <View style={styles.topView}>
@@ -106,10 +103,10 @@ const confirmSignOut = async()=>{
                             {{color:'black', 
                               fontSize:20,
                               paddingTop:28,
-                              paddingLeft:20
+                              paddingLeft:10,
                               }}
                               >
-                                Welcome,
+                                Welcome ,
                         </Text>
                                 <Text style=
                                     {{color:'black',
@@ -121,7 +118,7 @@ const confirmSignOut = async()=>{
                                       >
                                         {user.displayName}
                                 </Text>
-                <TouchableOpacity  onPress={()=> {navigation.push('profile')}}><Image source={image1} style={styles.profilePic}></Image></TouchableOpacity>
+                <TouchableOpacity  onPress={()=> {navigation.push('profile')}}><Image source={imageSrc} style={styles.profilePic}></Image></TouchableOpacity>
         </View>
         <TouchableOpacity onPress={confirmSignOut} style={{height:20, width:20,alignSelf:'flex-start',paddingLeft:10}}>
                     
@@ -136,10 +133,10 @@ const confirmSignOut = async()=>{
         </TouchableOpacity>
         <View>
           <ConfirmationPopup visible={visible}>
-            {/* <Image
-              source={modalImage}
+            <Image
+              source={ModalImg}
               style={{ width: 50, height: 50, alignSelf: "center" }}
-            /> */}
+            />
             <Text
               style={{ marginVertical: 30, fontSize: 20, textAlign: "center" }}
             >
@@ -160,7 +157,7 @@ const confirmSignOut = async()=>{
                 <View style={styles.special}>
                     <View style={styles.promoTextContainer}>
                         <Text style={styles.promoText}>Get our super combo at Combo Mondays to enjoy our special meat monster</Text>
-                        <TouchableOpacity onPress={()=> {navigation.push('cart')}} style={styles.promoBtn}>
+                        <TouchableOpacity onPress={()=> {navigation.push('orders')}} style={styles.promoBtn}>
                             <Text>Order here..</Text>
                         </TouchableOpacity>
                     </View>
@@ -226,7 +223,7 @@ const confirmSignOut = async()=>{
             
                         {foods.map((food) => (
                             <View style={styles.mealCards} key={food.id} >
-                            <TouchableOpacity><Image source={food.image} style={styles.meal1}></Image></TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('cart',food)}><Image source={food.image} style={styles.meal1}></Image></TouchableOpacity>
                             <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>
                                 {food.description}
                             </Text>
@@ -244,6 +241,9 @@ const confirmSignOut = async()=>{
                 </View>
             
         </ScrollView>
+        {/* <ScrollView >
+              <Card style={{backgroundColor:'purple'}}/>
+            </ScrollView> */}
         <View style={styles.bottomView}>
             <TouchableOpacity onPress={()=> {navigation.push('home')}}>
                 <FontAwesomeIcon icon={faHome} style={{fontSize:30,paddingTop:15, height:20, width:30,color:'orange'}} />
@@ -294,6 +294,7 @@ const styles = StyleSheet.create({
         marginTop:20,
         marginRight:20,
         alignSelf:'center',
+        backgroundColor:'orange'
     },
     searchBoxContainer:{
         border:'2px solid orange',

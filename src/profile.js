@@ -8,6 +8,7 @@ import image1 from '../assets/img.jpeg'
 const Profilepage = ({navigation}) => {
 
   let user = auth.currentUser;
+  const imageSrc=(user.photoURL)
   return (
     <View style={styles.container}>
         <View style={styles.topView}>
@@ -25,7 +26,7 @@ const Profilepage = ({navigation}) => {
 
         </View>
         <View style={styles.midView}>
-            <Image style={{backgroundColor:'white',height:150,width:150,marginTop:-50,borderRadius:100}} source={image1} />
+            <Image style={{backgroundColor:'white',height:150,width:150,marginTop:-50,borderRadius:100}} source={imageSrc} />
     
             <Text style={{color:'grey',paddingTop:20,paddingLeft:30,paddingRight:20}}>Welcome<Text style={{color:'black',paddingTop:20,fontWeight:'bold'}}> {user.displayName}</Text> It's good to have you back</Text>
 

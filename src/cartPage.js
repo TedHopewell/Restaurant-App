@@ -5,24 +5,24 @@ import img from '../assets/pap2.jpg'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 
-export default function CartPage({navigation}) {
+export default function CartPage({navigation, route}) {
+  const food = route.params;
   return (
     <View style={styles.container}>
         <View style={styles.topView}>
-            <Image source={img} style={styles.topViewImg}></Image>
+            <Image source={food.image} style={styles.topViewImg}></Image>
             <TouchableOpacity onPress={() => {navigation.goBack();}} style={{height:20, width:20,alignSelf:'flex-start',marginLeft:20}}>
                     <FontAwesomeIcon icon={faArrowLeft}  />
             </TouchableOpacity>
-            <Text style={{fontSize:30,fontWeight:'bold', fontFamily:'roboto',paddingLeft:20}}>Pap and Steak</Text>
+            <Text style={{fontSize:30,fontWeight:'bold', fontFamily:'roboto',paddingLeft:20,marginTop:20}}>{food.description}</Text>
         </View>
         <View  style={styles.midView}>
              <View style={styles.infoContainer}>
-                    <Text >Our pap and stake is one of our favorites and the meat is specifically imported from the Angolan bool farm</Text>
+                    <Text style={{fontWeight:'bold'}}>Ingredients</Text>
+                    <Text style={{marginTop:20}}>{food.ingredients}</Text>
               </View> 
         </View>
-        <View  style={styles.bottomView}>
-            <Text>menu here</Text>
-        </View>
+        <View  style={styles.bottomView}></View>
 
     </View>
   );
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
       
         height:50,
         width:'100%',
-        backgroundColor:'blue',
+        
       }
 })
 
