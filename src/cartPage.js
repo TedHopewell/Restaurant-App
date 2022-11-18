@@ -19,7 +19,7 @@ export default function CartPage({navigation, route}) {
         <View  style={styles.midView}>
              <View style={styles.infoContainer}>
                     <Text style={{fontSize:30,fontWeight:'bold',fontFamily:'roboto',color:'grey'}}>Ingredients</Text>
-                    <Text style={{marginTop:20,backgroundColor:'rgb(203,210,143)',padding:10}}>{food.ingredients}</Text>
+                    <Text style={{marginTop:20,backgroundColor:'rgb(203,210,143)',padding:10,textAlign:'center'}}>{food.ingredients}</Text>
               </View> 
         </View>
         <View  style={styles.bottomView}></View>

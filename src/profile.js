@@ -38,7 +38,7 @@ const Profilepage = ({navigation}) => {
             </View>
 
             <View style={{shadowOpacity:4,width:300,height:50,backgroundColor:'white',marginTop:20}}>
-                <Text style={{padding:10}}>Profile page still under development</Text>
+                <Text style={{padding:10,textAlign:'center'}}>Thank you @<Text style={{color:'orange', fontWeight:'100'}}>{user.displayName}</Text> for trusting us, Happy Festive!!!</Text>
             </View>
 
 
