@@ -26,7 +26,7 @@ const Profilepage = ({navigation}) => {
 
         </View>
         <View style={styles.midView}>
-            <Image style={{backgroundColor:'white',height:150,width:150,marginTop:-50,borderRadius:100}} source={imageSrc} />
+            <Image style={{backgroundColor:'orange',height:150,width:150,marginTop:-50,borderRadius:100}} source={imageSrc} />
     
             <Text style={{color:'grey',paddingTop:20,paddingLeft:30,paddingRight:20}}>Welcome<Text style={{color:'black',paddingTop:20,fontWeight:'bold'}}> {user.displayName}</Text> It's good to have you back</Text>
 
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     topView:{
         flex:4,
         width:'100%',
-        backgroundColor:'orange',
+        
         
     },
     midView:{
@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
     },
     bottomView:{
         flex:2,
-        backgroundColor:'orange',
         width:'100%'
     },
     iconicIcon:{

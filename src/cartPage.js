@@ -14,12 +14,12 @@ export default function CartPage({navigation, route}) {
             <TouchableOpacity onPress={() => {navigation.goBack();}} style={{height:20, width:20,alignSelf:'flex-start',marginLeft:20}}>
                     <FontAwesomeIcon icon={faArrowLeft}  />
             </TouchableOpacity>
-            <Text style={{fontSize:30,fontWeight:'bold', fontFamily:'roboto',paddingLeft:20,marginTop:20}}>{food.description}</Text>
+            <Text style={{fontSize:30,fontWeight:'bold', fontFamily:'roboto',paddingLeft:20,marginTop:20,color:'grey'}}>{food.description}</Text>
         </View>
         <View  style={styles.midView}>
              <View style={styles.infoContainer}>
-                    <Text style={{fontWeight:'bold'}}>Ingredients</Text>
-                    <Text style={{marginTop:20}}>{food.ingredients}</Text>
+                    <Text style={{fontSize:30,fontWeight:'bold',fontFamily:'roboto',color:'grey'}}>Ingredients</Text>
+                    <Text style={{marginTop:20,backgroundColor:'rgb(203,210,143)',padding:10}}>{food.ingredients}</Text>
               </View> 
         </View>
         <View  style={styles.bottomView}></View>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
       },
       
       infoContainer:{
-        
+        //backgroundColor:'orange',
         height:50,
         width:'100%',
         padding:20,

@@ -241,9 +241,7 @@ return (
                 </View>
             
         </ScrollView>
-        {/* <ScrollView >
-              <Card style={{backgroundColor:'purple'}}/>
-            </ScrollView> */}
+        
         <View style={styles.bottomView}>
             <TouchableOpacity onPress={()=> {navigation.push('home')}}>
                 <FontAwesomeIcon icon={faHome} style={{fontSize:30,paddingTop:15, height:20, width:30,color:'orange'}} />
@@ -265,9 +263,7 @@ return (
                 <FontAwesomeIcon icon={faUser} style={{fontSize:30,paddingTop:15, height:20, width:30,color:'orange'}} />
             </TouchableOpacity>
         </View>
-        
-        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="orange" fillOpacity="1" d="M0,64L48,101.3C96,139,192,213,288,240C384,267,480,245,576,202.7C672,160,768,96,864,85.3C960,75,1056,117,1152,149.3C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg> */}
-        
+                
     </SafeAreaView>
   );
 }
