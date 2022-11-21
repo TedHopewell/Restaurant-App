@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,TouchableOpacity,Image } from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity,Image,ScrollView} from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {collection,doc, deleteDoc,getDocs, query} from 'firebase/firestore'
@@ -45,23 +45,23 @@ const Orderspage = ({navigation}) => {
         </TouchableOpacity>
 
         </View>
-        <View style={styles.midView}>
+        <ScrollView style={styles.midView}>
             {Carts.map((cart) =>(
                 <View style={styles.midViewFood} key={cart.id}>
-                    <Image source={cart.image} style={{width:50,height:50,alignSelf:'flex-start'}}/>
-                    <Text>{cart.description}</Text>
-        
+                    <Image source={cart.image} style={{width:50,height:50}}/>
+                    <Text style={{paddingLeft:20,width:150}}>{cart.description}</Text>
+                    <Text style={{fontWeight:'600',paddingLeft:100}}>R{cart.price}.00</Text>
                 </View>
                 ))
 
                 }
                 
-        </View>
+        </ScrollView>
         
        
-        <View style={styles.bottomView}>
+        {/* <View style={styles.bottomView}>
                 <TouchableOpacity><Text>press me</Text></TouchableOpacity>
-        </View>
+        </View> */}
           </View>
   )
 }
@@ -72,11 +72,10 @@ const styles = StyleSheet.create({
     container:{
             flex: 1,
             alignItems: 'center',
-            backgroundColor:'rgb(252,246,246)',
+            backgroundColor:'white',
     },
     topView:{
-        flex:1,
-        height:'50px',
+        height:50,
         width:'100%',
         
         
@@ -84,9 +83,7 @@ const styles = StyleSheet.create({
     midView:{
         flex:12,
         width:'100%',
-        justifyContent:'center',
-        alignItems:'center',
-
+        padding:10
     },
     bottomView:{
         flex:1,
@@ -101,11 +98,11 @@ const styles = StyleSheet.create({
     midViewFood:{
         display:'flex',
         flexDirection:'row',
-        justifyContent:'space-evenly',
         alignItems:'center',
         width:'100%',
         marginTop:20,
-        backgroundColor:'blue'
+        backgroundColor:'rgb(252,246,246)',
+        padding:20
     }
 
 })
