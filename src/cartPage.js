@@ -3,10 +3,16 @@ import { StyleSheet, Text, View,ScrollView,Dimensions,SafeAreaView, Image, TextI
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import img from '../assets/pap2.jpg'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from './firebase';
 
 
 export default function CartPage({navigation, route}) {
   const food = route.params;
+  const addToCart = async() =>{
+    await  addDoc(collection(db,"cart"),{image:food.image,description:food.description,price:food.price,ingredients:food.ingredients})
+    console.log('added');
+  }
   return (
     <View style={styles.container}>
         <View style={styles.topView}>
@@ -22,6 +28,19 @@ export default function CartPage({navigation, route}) {
                     <Text style={{marginTop:20,backgroundColor:'rgb(203,210,143)',padding:10,textAlign:'center'}}>{food.ingredients}</Text>
               </View> 
         </View>
+        <TouchableOpacity 
+                                onPress={addToCart}
+                                style={{
+                                    backgroundColor:'orange', 
+                                    width:120,
+                                    marginLeft:15,
+                                    marginTop:20,
+                                    borderRadius:20,}}
+                                >
+                                <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>
+                                    R{food.price}
+                                </Text>
+                            </TouchableOpacity>
         <View  style={styles.bottomView}></View>
 
     </View>

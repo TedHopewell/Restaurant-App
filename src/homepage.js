@@ -14,7 +14,7 @@ import image3 from '../assets/mabele.jpg'
 import image4 from '../assets/rice.jpg'
 import image5 from '../assets/kota1.jpg'
 import ConfirmationPopup from './modal';
-import {collection, getDocs, query, where} from 'firebase/firestore'
+import {addDoc,collection,doc, deleteDoc,getDocs, query, where} from 'firebase/firestore'
 import { db } from './firebase';
 
 import { auth } from './firebase';
@@ -227,12 +227,36 @@ return (
                             <Text style={{textAlign:'center', paddingTop:10,fontFamily:'roboto',height:30,paddingHorizontal:5,fontSize:12,}}>
                                 {food.description}
                             </Text>
-                            <TouchableOpacity style={{backgroundColor:'orange', width:120,marginLeft:15,marginTop:20,borderRadius:20,}}>
+                            <TouchableOpacity 
+                                onPress={async() =>
+                                    {
+                                    await  addDoc(collection(db,"cart"),{image:food.image,description:food.description,price:food.price,ingredients:food.ingredients})
+                                    console.log('added')
+                                    console.log(food.image)
+                                    }
+                                }
+                                style={{
+                                    backgroundColor:'orange', 
+                                    width:120,
+                                    marginLeft:15,
+                                    marginTop:20,
+                                    borderRadius:20,}}
+                                >
                                 <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>
                                     R{food.price}
                                 </Text>
                             </TouchableOpacity>
-                    
+                            {/* <TouchableOpacity style={style.addToCartBtn} onPress={async() =>
+                                      {
+                                        await  addDoc(collection(db,"cart"),{foodName:food.name,price:food.price,ingridients:food.ingridients,num:1,image:food.image})
+                                        console.log('added')
+                                        console.log(food.image)
+                                      }
+                                    }
+                                    >
+                                    <Icon name="add" size={20} color={COLORS.dark} />
+                                  </TouchableOpacity>
+                     */}
                             </View>
                         
                         

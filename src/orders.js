@@ -1,9 +1,34 @@
-import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View,TouchableOpacity,Image } from 'react-native'
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {collection,doc, deleteDoc,getDocs, query} from 'firebase/firestore'
+import { db } from './firebase';
+
 
 const Orderspage = ({navigation}) => {
+  
+  const [Carts, setCarts] = React.useState([]);
+  const cartRef = collection(db, "cart");  
+  
+
+  const getItems = async() => {
+    let q = query(cartRef)
+    let data = await getDocs(q);
+    setCarts(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
+    
+  }
+  console.log(Carts);
+
+  
+
+  React.useEffect(()=>{
+    getItems();
+ 
+  }
+
+  ,[])
+
+
   return (
     <View style={styles.container}>
         <View style={styles.topView}>
@@ -21,11 +46,21 @@ const Orderspage = ({navigation}) => {
 
         </View>
         <View style={styles.midView}>
-            <Text>orders page here</Text>
+            {Carts.map((cart) =>(
+                <View style={styles.midViewFood} key={cart.id}>
+                    <Image source={cart.image} style={{width:50,height:50,alignSelf:'flex-start'}}/>
+                    <Text>{cart.description}</Text>
+        
+                </View>
+                ))
 
+                }
+                
         </View>
+        
+       
         <View style={styles.bottomView}>
-
+                <TouchableOpacity><Text>press me</Text></TouchableOpacity>
         </View>
           </View>
   )
@@ -35,29 +70,27 @@ export default Orderspage
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center',
-        
+            flex: 1,
+            alignItems: 'center',
+            backgroundColor:'rgb(252,246,246)',
     },
     topView:{
         flex:1,
         height:'50px',
         width:'100%',
-        backgroundColor:'yellow',
+        
         
     },
     midView:{
         flex:12,
         width:'100%',
-        backgroundColor:'rgb(203,210,143)',
         justifyContent:'center',
         alignItems:'center',
 
     },
     bottomView:{
         flex:1,
-        backgroundColor:'orange',
+    
         width:'100%'
     },
     iconicIcon:{
@@ -65,5 +98,14 @@ const styles = StyleSheet.create({
         marginLeft:20,
         width:20
     },
+    midViewFood:{
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'space-evenly',
+        alignItems:'center',
+        width:'100%',
+        marginTop:20,
+        backgroundColor:'blue'
+    }
 
 })

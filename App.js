@@ -17,7 +17,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer >
-            <Stack.Navigator initialRouteName='login'>
+            <Stack.Navigator initialRouteName='orders'>
                   <Stack.Screen name='signup' options={{title:'signup', headerShown:false}}>
                     {(props)=> <SignupPage {...props} />}
                   </Stack.Screen>
