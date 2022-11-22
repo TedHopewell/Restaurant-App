@@ -50,7 +50,10 @@ const Orderspage = ({navigation}) => {
                 <View style={styles.midViewFood} key={cart.id}>
                     <Image source={cart.image} style={{width:50,height:50}}/>
                     <Text style={{paddingLeft:20,width:150}}>{cart.description}</Text>
-                    <Text style={{fontWeight:'600',paddingLeft:100}}>R{cart.price}.00</Text>
+                    <Text style={{textAalign:'center',fontWeight:'600',borderBottomColor:'orange',borderBottomWidth:2}}>R{cart.price}.00</Text>
+                    <TouchableOpacity style={{marginLeft:20,backgroundColor:'white',width:50,height:20,borderRadius:8}}>
+                        <Text style={{textAlign:'center',fontWeight:800,color:'orange'}}>x</Text>
+                    </TouchableOpacity>
                 </View>
                 ))
 
