@@ -7,7 +7,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faDirections } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import image1 from '../assets/img.jpeg'
 import image2 from '../assets/nyama1.jpg'
 import image3 from '../assets/mabele.jpg'
@@ -276,7 +276,7 @@ return (
             </TouchableOpacity>
 
             <TouchableOpacity onPress={()=> {navigation.push('orders')}} style={{backgroundColor:'orange', width:30,height:30,marginTop:10,borderRadius:50}}>
-                <FontAwesomeIcon icon={faBriefcase} style={{fontSize:30, height:20, width:30,marginTop:5, }} />
+                <FontAwesomeIcon icon={faCartShopping} style={{fontSize:30, height:20, width:20,marginTop:5,alignSelf:'center' }} />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={()=> {navigation.push('directions')}}>

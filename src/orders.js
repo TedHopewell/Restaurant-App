@@ -5,7 +5,7 @@ import {collection,doc, deleteDoc,getDocs, query} from 'firebase/firestore'
 import { db } from './firebase';
 
 
-const Orderspage = ({navigation}) => {
+const Orderspage = ({navigation, id}) => {
   
   const [Carts, setCarts] = React.useState([]);
   const cartRef = collection(db, "cart");  
@@ -19,7 +19,19 @@ const Orderspage = ({navigation}) => {
   }
   console.log(Carts);
 
+  const onRemove = id => e => {
+    setCarts(Carts.filter(Carts => Carts.id !== id));
+  };
+  console.log('deleted');
   
+
+    const deleteFood = async(id) =>{
+        const Carts = doc(cartRef, id);
+        console.log( cartRef, id);
+        await deleteDoc(Carts)
+        alert('deleted')
+        getItems();
+    }
 
   React.useEffect(()=>{
     getItems();
@@ -51,8 +63,8 @@ const Orderspage = ({navigation}) => {
                     <Image source={cart.image} style={{width:50,height:50}}/>
                     <Text style={{paddingLeft:20,width:150}}>{cart.description}</Text>
                     <Text style={{textAalign:'center',fontWeight:'600',borderBottomColor:'orange',borderBottomWidth:2}}>R{cart.price}.00</Text>
-                    <TouchableOpacity style={{marginLeft:20,backgroundColor:'white',width:50,height:20,borderRadius:8}}>
-                        <Text style={{textAlign:'center',fontWeight:800,color:'orange'}}>x</Text>
+                    <TouchableOpacity style={{marginLeft:20,backgroundColor:'white',width:50,height:20,borderRadius:8}}  >
+                        <Text style={{textAlign:'center',fontWeight:800,color:'orange'}} onPress={onRemove(id)}>x</Text>
                     </TouchableOpacity>
                 </View>
                 ))
