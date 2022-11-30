@@ -28,13 +28,12 @@ export default function CartPage({navigation, route}) {
                     <Text style={{marginTop:20,backgroundColor:'rgb(203,210,143)',padding:10,textAlign:'center'}}>{food.ingredients}</Text>
               </View> 
         </View>
-        <TouchableOpacity 
+                            <TouchableOpacity 
                                 onPress={addToCart}
                                 style={{
                                     backgroundColor:'orange', 
                                     width:120,
                                     marginLeft:15,
-                                    marginTop:20,
                                     borderRadius:20,}}
                                 >
                                 <Text style={{textAlign:'center', fontFamily:'roboto',paddingVertical:8,fontWeight:'800'}}>
